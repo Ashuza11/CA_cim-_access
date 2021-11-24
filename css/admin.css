@@ -1,0 +1,161 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+.title {
+    margin-bottom: 50px;
+}
+
+.dash-board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+}
+/* Tools */
+.tools {
+    position: relative;
+    background-color: #202027;
+    width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    height: auto;
+    width: 400px;
+    padding:40px;
+    border-radius: 10px;
+}
+.tools .fonc {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tools .fonc button {
+    height: 36px;
+    width: 200px;
+    background-color: #BC3A80;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.tools .btn a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 5000;
+}
+.tools .btn.blue {
+    background-color: #1A62A7;
+}
+.tools h2 {
+    font-size: 36px;
+}
+.tools .fonc .red {
+    width: 36px;
+    height: 36px;
+    color: #BC3A80;
+}
+.tools img {
+    width: 36px;
+    height: 36px;
+}
+/* Tools End  */
+
+/* traque */
+.traq {
+    position: relative;
+    background-color: #202027;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    height: auto;
+    width: 400px;
+    padding: 40px;
+    border-radius: 5px;
+}
+
+.traq button {
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #BC3A80;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.traq button a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Traque End  */
+.dash-board .dash-icon {
+    height: 200px;
+    width: 200px;
+}
+
+/* Register */
+.register {
+    background-color: #202027;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    height: auto;
+    width: 400px;
+    padding: 40px;
+    border-radius: 5px;
+}
+.register button {
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #1A62A7;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.register button a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+/* Register End */
+
+/* Footer */
+.footer p {
+    background-color: #202027;
+    height: 50px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Footer End  */
+
+/* Resposiveness */
+@media(max-width: 600px) {
+    .dash-board {
+        display: flex;
+        flex-direction: column;
+    }
+}

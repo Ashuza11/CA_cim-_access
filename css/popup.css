@@ -1,7 +1,3 @@
-*, *::after, *::before {
-    box-sizing: border-box;
-}
-
 /* Pop up form */
 .form {
     /* display: flex;
