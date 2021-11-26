@@ -12,7 +12,10 @@ body {
     font-size: 1.2rem;
     color: white;
     min-height: 100vh;
-
+}
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .full-height-grow {
@@ -58,7 +61,6 @@ body {
     margin: 0;
     padding: 0;
     list-style: none;
-
     color: inherit;
     padding: 1rem;
     background-color: #202027;
@@ -93,10 +95,9 @@ body {
 /* Home title */
 .title {
     font-weight: 500;
-    font-size: 3em;
-    margin-bottom: 1rem;
+    font-size: 4rem;
     margin-top: 0;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
 }
 .button {
     color: white;

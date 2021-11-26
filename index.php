@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/popup.css">
-    <link rel = "icon" href = "img/logo.svg" type = "image/x-icon">
-    <title>Cimé Access</title> 
-</head>
+<?php 
+    include_once '<backend/header.php'
+?>
 <body class="container full-height-grow">
     <header class="main-header">
         <a href="/" class="logo">
-            <img src="/img/logo.svg">
+            <img src="img/logo.png" alt="icon">
             <div class="logo-text"><i class="a">C</i>imé <i class="b">A</i>ccess</div>
         </a>
-        <nav class="main-nav">
+    <nav class="main-nav">
             <button data-form-target="#form">Connexion</button>
-        </nav>
+    </nav>
     </header>
     <section class="home-section">
         <div class="home-content">
@@ -26,15 +18,15 @@
         </div>
     </section>
     <div class="form" id="form">
-        <form action="admin.html" method="#" id="login-form">
-            <button data-colse-button class="close-btn">&times;</button>
+        <form action="backend/login_inc.php" method="POST" id="login-form">
+            <div data-colse-button class="close-btn">&times;</div>
             <div class="input-group">
                 <label for="name">Email ou Non d'utilisateur :</label>
                 <input type="text" class="inputfield" name="name">
             </div>
             <div class="input-group">
                 <label for="pwd">Mot de passe :</label>
-                <input type="password" class="inputfield" name="password">
+                <input type="password" class="inputfield" name="pwd">
             </div>
             <div class="input-group">
                 <input id="btn" type="submit" value="Se connecter">
@@ -45,6 +37,6 @@
     <div class="circle-2"></div>
     <div class="circle-3"></div>
     <div id="overlay"></div>
-    <script defer src="popup.js"></script>
+    <script defer src="js/popup.js"></script>
 </body>
 </html>

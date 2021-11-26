@@ -15,8 +15,8 @@
 }
 
 .dash-board {
-    display: flex;
-    flex-wrap: wrap;
+    display: flex; 
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
     gap: 30px;
@@ -24,7 +24,6 @@
 }
 /* Tools */
 .tools {
-    position: relative;
     background-color: #202027;
     width: 500px;
     text-align: center;
@@ -32,14 +31,15 @@
     flex-direction: column;
     justify-content: center;
     gap: 50px;
-    height: auto;
-    width: 400px;
+    height: 400px;
+    width: auto;
     padding:40px;
     border-radius: 10px;
 }
 .tools .fonc {
     display: flex;
     justify-content: space-around;
+    gap: 30px;
 }
 
 .tools .fonc button {
@@ -82,10 +82,10 @@
     justify-content: center;
     align-items: center;
     gap: 70px;
-    height: auto;
-    width: 400px;
+    height: 400px;
+    width: auto;
     padding: 40px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .traq button {
@@ -118,10 +118,10 @@
     justify-content: center;
     align-items: center;
     gap: 70px;
-    height: auto;
-    width: 400px;
+    height: 400px;
+    width: auto;
     padding: 40px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .register button {
     height: 50px;
@@ -153,9 +153,14 @@
 /* Footer End  */
 
 /* Resposiveness */
-@media(max-width: 600px) {
+@media(max-width: 900px) and (width: 400px){
     .dash-board {
         display: flex;
-        flex-direction: column;
+        flex-flow: column;
     }
+    .container {
+        display: flex;
+        flex-flow: column;
+    }
+    
 }

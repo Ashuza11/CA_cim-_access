@@ -11,7 +11,8 @@ openModalButtons.forEach(button => {
 
 closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
-        const form = button.closest('.form')
+        // const form = button.closest('.form')
+        const form =document.querySelector('#form')
         closeModal(form)
     })
 })

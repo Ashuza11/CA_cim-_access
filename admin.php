@@ -12,11 +12,11 @@
 <body class="container full-height-grow">
     <header class="main-header">
         <a href="/" class="logo">
-            <img src="/img/logo.svg">
+            <img src="img/logo.png">
             <div class="logo-text"><i class="a">C</i>imé <i class="b">A</i>ccess</div>
         </a>
         <nav class="main-nav">
-            <button data-form-target="#form">Déconnexion</button>
+            <button class="deconect"><a href="index.html">Déconnexion</a></button>
         </nav>
     </header>
     <section class="container">
@@ -43,7 +43,7 @@
             </div>
             <div class="register">
                 <img class="dash-icon" src="img/register.png" alt="icon">
-                <button><a href="#">Enregistrer l'étudiant</a></button>
+                <button><a href="register.html">Enregistrer l'étudiant</a></button>
             </div>
         </div>
     </section>

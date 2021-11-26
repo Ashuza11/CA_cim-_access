@@ -16,40 +16,62 @@
             <div class="logo-text"><i class="a">C</i>imé <i class="b">A</i>ccess</div>
         </a>
         <nav class="main-nav">
-            <button data-form-target="#form">Déconnexion</button>
+            <button><a href="index.html">Déconnexion</a></button>
         </nav>
     </header>
-    <section class="container">
-        <h1 class="title">Enregistrement de l'etudiant</h1>
-        <form action="#" method="#" id="reister-form">
-            <div class="for-left">
-                <div class="input-group">
-                    <label for="name">Matricule :</label>
-                    <input type="number" class="inputfield" name="id">
+    <main class="container">
+        <h1 class="title">Traquet la présence</h1>
+        <form action="#" method="#" id="register-form">
+            <div class="form-content">
+                <div class="form-left">
+                    <div class="input-group">
+                        <label for="name">Matricule :</label>
+                        <input type="number" class="inputfield" name="id">
+                    </div>
+                    <div class="input-group">
+                        <label for="name">Heure d'entre :</label>
+                        <input type="time" class="inputfield" name="time">
+                    </div>
+                    <div class="input-group">
+                        <label for="name">Durée :</label>
+                        <input type="number" class="inputfield" name="time">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="name">Heure d'entre :</label>
-                    <input type="time" class="inputfield" name="time">
+                <div class="form-right">
+                    <h3>Motif :</h3>
+                    <div id="radio-btn">
+                        <label for="Recherche" class="lable">
+                            <input type="radio"  name="radiofield"  id="Recherche" class="radio_input">
+                            <div class="radio_Radio"></div>
+                            Recherche
+                        </label>
+                        <label for="Formation" class="lable">
+                            <input type="radio"  name="radiofield"  id="Formation" class="radio_input">
+                            <div class="radio_Radio"></div>
+                            Formation
+                        </label>
+                        <label for="Impression" class="lable">
+                            <input type="radio" name="radiofield" id="Impression"  class="radio_input">
+                            <div class="radio_Radio"></div>
+                            Impression
+                        </label>
+                        <label for="Photocopie" class="lable">
+                            <input type="radio"  name="radiofield" id="Photocopie" class="radio_input">
+                            <div class="radio_Radio"></div>
+                            Photocopie
+                        </label>
+                        <label for="courant" class="lable">
+                            <input type="radio"  name="radiofield" id="courant" class="radio_input">
+                            <div class="radio_Radio"></div>
+                            courant
+                        </label>
+                        <label for="Stage" class="lable">
+                            <input type="radio"  name="radiofield" id="Stage" class="radio_input">
+                            <div class="radio_Radio"></div>
+                            Stage
+                        </label>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="name">Durée :</label>
-                    <input type="number" class="inputfield" name="time">
-                </div>
-            </div>
-            <div class="input-group">
-                <h3>Motif</h3>
-                <input type="radio" id="huey" name="drone" value="huey"checked>
-                <label for="huey">Recherche</label>
-                <input type="radio" id="huey" name="drone" value="huey"checked>
-                <label for="huey">Formation</label>
-                <input type="radio" id="huey" name="drone" value="huey"checked>
-                <label for="huey">Inpression</label>
-                <input type="radio" id="huey" name="drone" value="huey"checked>
-                <label for="huey">Photocopie</label>
-                <input type="radio" id="huey" name="drone" value="huey"checked>
-                <label for="huey">courant</label>
-                <input type="radio" id="huey" name="drone" value="huey"checked>
-                <label for="huey">Stage</label>
             </div>
             <div class="input-group">
                 <input id="btn" type="submit" value="Traquet">
@@ -58,7 +80,7 @@
                 <a href="#">Pas encore enregistré, enregistre la personnée</a>
             </div>
         </form>
-    </section>
+    </main>
     <footer class="footer">
         <p> Copyright &#xa9;2021, Cimé Access.ulpgl.net</p>
     </footer>
