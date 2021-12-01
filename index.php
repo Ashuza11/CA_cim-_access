@@ -1,5 +1,5 @@
 <?php 
-    include_once '<backend/header.php'
+    include_once 'backend/header.php'
 ?>
 <body class="container full-height-grow">
     <header class="main-header">
@@ -8,17 +8,27 @@
             <div class="logo-text"><i class="a">C</i>imé <i class="b">A</i>ccess</div>
         </a>
     <nav class="main-nav">
-            <button data-form-target="#form">Connexion</button>
+        <button data-form-target="#form">Connexion</button>
     </nav>
     </header>
+    <?php
+            if (isset($_GET["error"])){
+                if ($_GET["error"] == "emptyinput"){
+                    echo '<p style="color: red; padding: 10px 15px; font-weight: bold; text-align: center; font-size: 20px;" >Viellez remplir tous les champs !</p>';
+                }
+                else if ($_GET["error"] == "Mauvaisidentifiant") {
+                    echo "<p style='color: red; padding: 10px 15px; font-weight: bold; text-align: center; font-size: 20px; margin-bottom: 0px;'>Informations incorrect !</p>";
+                }
+            }
+    ?>
     <section class="home-section">
         <div class="home-content">
-            <h1 class="title">Gestion d'accès à la l'atélier informatique</h1>
+            <h1 class="title">Gestion d'accès à l'atélier informatique</h1>
             <button class="button" data-form-target="#form">Connexion</button>
         </div>
     </section>
     <div class="form" id="form">
-        <form action="backend/login_inc.php" method="POST" id="login-form">
+        <form action="backend/login.php" method="POST" id="login-form">
             <div data-colse-button class="close-btn">&times;</div>
             <div class="input-group">
                 <label for="name">Email ou Non d'utilisateur :</label>
@@ -29,7 +39,10 @@
                 <input type="password" class="inputfield" name="pwd">
             </div>
             <div class="input-group">
-                <input id="btn" type="submit" value="Se connecter">
+                <button name="submit" type="submit" id="btn">Se connecter</button>
+            </div>
+            <div id="login-register-text">
+                <p>Vous avez de compte ? <a href="inscriptionAdmin.php">Connectez-vous ici</a></p>
             </div>
         </form>
     </div>

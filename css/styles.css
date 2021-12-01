@@ -97,7 +97,7 @@ a {
     font-weight: 500;
     font-size: 4rem;
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 .button {
     color: white;
@@ -120,13 +120,31 @@ a {
     color: #adadad;
 } */
 
+/* Link Massege  */
+#login-form .login-register-text p {
+    font-size: 15px;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+}
+
+#login-form .login-register-text p, a {
+    margin-left: 3px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #1762A7;
+    text-decoration: underline;
+}
+
+/* Link massege  */
+
 /* Home section */
 .home-section {
     display: flex;
     align-items: stretch;
     justify-content: center;
     flex-grow: 1;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 .home-content {
     text-align: center;
@@ -174,5 +192,7 @@ a {
     border-radius: 50%;
     background-color: rgb(23, 98, 167, .1);
 }
+
+
 /* Circles end */
 

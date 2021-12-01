@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-        <form action="php/register.php" method="POST" class="login-email">
+        <form action="backend/register.inc.php" method="POST" class="login-email">
             <p class="login-text" style="font-size: 2rem; font-weight: 800;">S'inscrire</p>
             <div class="input-group">
             <label for="name">Non :</label>

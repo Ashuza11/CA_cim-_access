@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/admin.css">
-    <link rel = "icon" href = "img/logo.svg" type = "image/x-icon">
+    <link rel = "icon" href = "img/logo.png" type = "image/x-icon">
     <title>Cimé Access</title> 
 </head>
 <body class="container full-height-grow">
@@ -39,11 +39,11 @@
             </div>
             <div class="traq">
                 <img class="dash-icon" src="img/traq.png" alt="icon">
-                <button><a href="#">Traquet la présence</a></button>
+                <button><a href="traque.php">Traquet la présence</a></button>
             </div>
             <div class="register">
                 <img class="dash-icon" src="img/register.png" alt="icon">
-                <button><a href="register.html">Enregistrer l'étudiant</a></button>
+                <button><a href="studentRegister.php">Enregistrer l'étudiant</a></button>
             </div>
         </div>
     </section>

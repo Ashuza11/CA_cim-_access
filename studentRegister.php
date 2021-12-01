@@ -21,43 +21,43 @@
     </header>
     <div class="box">
         <main class="container">
-            <h1 class="title">Enregistrer de la personnée</h1>
-            <form action="#" method="#" id="register-form">
+            <h1 class="title">Enregistrer la personnée</h1>
+            <form action="backend/studentRegister.inc.php" method="POST" id="register-form">
                 <div class="form-content">
                     <div class="form-left">
                         <div class="input-group">
-                            <label for="name">Nom :</label>
-                            <input type="text" class="inputfield" name="name">
+                            <label for="name">Nom <span class="required">*</span> :</label>
+                            <input type="text" class="inputfield" autofocus name="name">
                         </div>
                         <div class="input-group">
                             <label for="name">Post Nom :</label>
-                            <input type="text" class="inputfield" name="second-name">
+                            <input type="text" class="inputfield" name="secondName">
                         </div>
                         <div class="input-group">
                             <label for="name">Prénon :</label>
-                            <input type="text" class="inputfield" name="last-name">
+                            <input type="text" class="inputfield" name="lastName">
                         </div>
                     </div>
                     <div class="form-right">
                         <div class="input-group">
                             <label for="name">Matricule :</label>
-                            <input type="number" class="inputfield" name="last-name">
+                            <input type="number" class="inputfield" name="matricule">
                         </div>
                         <div class="input-group">
                             <label for="name">Faculté :</label>
-                            <input type="text" class="inputfield" name="last-name">
+                            <input type="text" class="inputfield" name="faculte">
                         </div>
                         <div class="input-group">
                             <label for="name">Promotion :</label>
-                            <input type="text" class="inputfield" name="last-name">
+                            <input type="text" class="inputfield" name="promotion">
                         </div>
                     </div>
                 </div>
                 <div class="input-group">
-                    <input id="btn" type="submit" value="Enregistrer">
+                    <button name="submit" type="submit" id="btn">Enregistrer</button>
                 </div>
                 <div class="review">
-                    <a href="#">Déjà Enregistré, Traquet la personnée</a>
+                    <p class="login-register-text">Déjà Enregistré ? ,<a href="traque.php">Traquet la personnée</a></p>
                 </div>
             </form>
         </main>

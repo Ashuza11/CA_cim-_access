@@ -2,19 +2,19 @@
 
 if (isset($_POST["submit"])){
 
-    $adminName = $_POST["name"];
-    $adminPwd = $_POST["pwd"];
+    $name = $_POST["name"];
+    $pwd = $_POST["pwd"];
 
     # Data base file 
     require_once 'db.php';
     # Functions file
-    require_once 'fonction.php';
+    require_once 'function.php';
 
-    if (emptyInputLogin($adminName, $adminPwd) !== false) {
+    if (emptyInputLogin($name, $pwd) !== false) {
         header("location: ../index.php?error=emptyinput");
         exit();
     }
-    loginUser($conn, $adminName, $adminPwd);
+    loginAdmin($conn, $name, $pwd);
 }
 else {
     header("location: ../index.php");
