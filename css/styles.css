@@ -2,20 +2,31 @@
 
 *, *::before, *::after {
     box-sizing: border-box;
+    text-decoration: none;
+    outline: none; border:none;
+    transition: all .2s linear;
+}
+
+html {
+    overflow-x: hidden;
+    /* font-size: 76.5%; */
 }
 
 body {
     padding: 0;
     margin: 0;
-    background-color: #2F303A;
+    background-color: #dfe0ebb0;
     font-family: Poppins, sans-serif;
     font-size: 1.2rem;
-    color: white;
+    color: #202027;
     min-height: 100vh;
 }
-a {
+button a {
     text-decoration: none;
-    color: inherit;
+    color: #DDE2FF;
+}
+button a:hover {
+    color: #adadad;
 }
 
 .full-height-grow {
@@ -39,6 +50,7 @@ a {
 }
 
 .logo-text {
+    font-family: poppin;
     margin-left: 1rem;
     letter-spacing: 0.2rem;
 }
@@ -64,15 +76,20 @@ a {
     color: inherit;
     padding: 1rem;
     background-color: #202027;
+    color: #DDE2FF;
     border: none;
     outline: none;
     cursor: pointer;
     font-weight: bold;
     font-size: 16px;
 }
+.main-nav button a {
+    text-decoration: none;
+}
 .main-nav button:hover {
     color: #adadad;
 }
+
 /* Nav left part end */
 
 /* Nav-bar */
@@ -95,13 +112,14 @@ a {
 /* Home title */
 .title {
     font-weight: 500;
+    font-family: poppin;
     font-size: 4rem;
     margin-top: 0;
-    margin-bottom: 1.2rem;
+    margin-bottom: 2rem;
 }
 .button {
-    color: white;
-    background-color: #1762A7;
+    color: #2F303A;
+    background-color: #EEF6FB;
     padding: .75rem 1.5rem;  
     border-radius: .6rem;
     font-weight: bold;
@@ -109,32 +127,17 @@ a {
     outline: none;
     border: none;
     cursor: pointer;
+    box-shadow: 1px 2px #20202755;
 }
 .button:hover {
-    background-color: #2180d8;
+    background-color: #caebffd0;
 }
 .button:focus {
-    background-color: #2796ff;
+    background-color: #CAEBFF;
 }
 /* .home-content a:hover {
     color: #adadad;
 } */
-
-/* Link Massege  */
-#login-form .login-register-text p {
-    font-size: 15px;
-    text-align: center;
-    color: #fff;
-    font-weight: 600;
-}
-
-#login-form .login-register-text p, a {
-    margin-left: 3px;
-    font-size: 15px;
-    text-decoration: none;
-    color: #1762A7;
-    text-decoration: underline;
-}
 
 /* Link massege  */
 
@@ -156,7 +159,7 @@ a {
     width: 25vw;
     height: 25vw;
     border-radius: 50%;
-    background-color: rgb(188, 58, 128, .1);
+    background-color: rgba(188, 58, 127, 0.418);
     z-index: -1;
     bottom: 5vw;
     left: 5vw;
@@ -166,7 +169,7 @@ a {
     width: 25vw;
     height: 25vw;
     border-radius: 50%;
-    background-color: rgb(23, 98, 167, .1);
+    background-color: rgba(23, 97, 167, 0.438);
     top: 15vw;
     left: 25vw;
     z-index: -1;
@@ -190,7 +193,7 @@ a {
     height: 100%;
     width: 100%;
     border-radius: 50%;
-    background-color: rgb(23, 98, 167, .1);
+    background-color: rgba(23, 97, 167, 0.438);
 }
 
 

@@ -8,10 +8,76 @@
 .container {
     min-height: 700px;
 }
+.box-contente {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 140px;
+}
+
 .container h1 {
     margin-bottom: 10px;
-    margin-top: 0px;
+    text-align: center;
 }
+.container .tools {
+    background-color: #202027;
+    width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    height: 400px;
+    width: auto;
+    padding:40px;
+    border-radius: 10px;
+    margin-right: 50px;
+    border: 1px solid black;
+}
+/* Dash-board Tools  */
+div > .fonc {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+div > .fonc button {
+    height: 36px;
+    width: 200px;
+    background-color: #BC3A80;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.tools .btn a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 5000;
+}
+.tools .btn.blue {
+    background-color: #1A62A7;
+}
+.tools h2 {
+    font-size: 36px;
+}
+.tools .fonc .red {
+    width: 36px;
+    height: 36px;
+    color: #BC3A80;
+}
+.tools img {
+    width: 36px;
+    height: 36px;
+}
+/* Dash-board Tools end */
 
 #register-form {
     display: flex;
@@ -19,12 +85,13 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 90px;
+    margin-top: 25px;
     min-height: 400px;
     background-color: #202027;
     border-radius: 5px;
     border: 1px solid black;
-    padding-bottom: 10px;
+    padding: 30px;
+    border-radius: 10px;
 }
 #register-form .form-content {
     display: flex;
@@ -41,8 +108,30 @@
     padding-top: 30px;
     padding-bottom: 10px;
 }
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2px;
+    opacity: 0.6;
+    filter: invert(0.8);
+}
+input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1
+}
+/* ::-webkit-calendar-picker-indicator {
+    color: #BC3A80;
+    
+} */
 #register-form .form-content .input-group label {
     margin-bottom: .6rem;
+}
+#register-form .form-content .input-group label span {
+    color: #BC3A80;
+    margin-right: 3px;
+}
+#register-form .form-content h3 span {
+    color: #BC3A80;
+    margin-right: 3px;
 }
 
 #register-form .form-content .input-group .inputfield:focus {
@@ -140,7 +229,7 @@
 /* Right part end */
 .footer p {
     background-color: #202027;
-    height: 50px;
+    height: 100px;
     position: sticky;
     top: 100%;
     font-weight: 500;
@@ -148,7 +237,6 @@
     justify-content: center;
     align-items: center;
 }
-
 @media(max-width: 600px) and (max-width: 900px){
     #register-form {
         position: fixed;

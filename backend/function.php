@@ -104,7 +104,7 @@ function loginAdmin($conn, $name, $pwd) {
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if ($checkPwd === false) {
-        header("location: ../index.php?error=MauvaisIdentifiant");
+        header("location: ../index.php?error=MauvaisIpwd");
         exit();
     }
     else if ($checkPwd === true)
@@ -121,8 +121,8 @@ function loginAdmin($conn, $name, $pwd) {
 # Register Student 
 
 # Check if student exixte 
-function studentExists($conn, $matricule, $name) {
-    $sql = "SELECT * FROM register WHERE  matricule = ? OR studentName = ?;";
+function studentExists($conn, $name, $matricule) {
+    $sql = "SELECT * FROM register WHERE  studentName = ? OR matricule = ?;";
 
     $stmt = mysqli_stmt_init($conn); # stmt statement to execuite
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -162,7 +162,7 @@ function emptystudentInfo($name, $postName, $lastName, $matricule,  $faculte, $p
 
 # Register the student 
 function  registerStudent($conn, $name, $postName, $lastName, $matricule, $faculte, $promotion) {
-    $sql = "INSERT INTO register (studentName, studentPostName, studentlastName,  matricule, faculty, promotion) VALUES (?, ?, ?, ?, ?, ?);"; 
+    $sql = "INSERT INTO register (studentName, studentPostName, studentlastName,  matricule, faculty, promotion) VALUES (?, ?, ?, ?, ?, ?);";
 
     $stmt = mysqli_stmt_init($conn); # Initialise an new prepared statement
     # Check if it doesn't fail
@@ -182,26 +182,21 @@ function  registerStudent($conn, $name, $postName, $lastName, $matricule, $facul
 
 # Traquet the presence of the person 
 function traquetPresence($conn, $matricule, $dateTime, $time, $motif) {
-    # Chceck if the students is in the data base 
     $studentExists = studentExists($conn, $matricule, $matricule);
+    $sql = "INSERT INTO traque (matricule, dateandTime, duration, motif) VALUES (?, ?, ?, ?);"; 
     if ($studentExists === false) {
         header("location: ../traque.php?error=EtudiantIntrouve");
         exit();
     }
-    if ($studentExists === true)
-    {
-        $sql = "INSERT INTO traque (matricule, dateandTime, duration, motif) VALUES (?, ?, ?, ?);"; 
-
-        $stmt = mysqli_stmt_init($conn); # Initialise an new prepared statement
-        # Check if it doesn't fail
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("location: ../register.php?error=connexionFailed");
-        }
-        mysqli_stmt_bind_param($stmt, "ssss", $matricule, $dateTime, $time, $motif);
-        mysqli_stmt_execute($stmt);
-        # Grabe thr data 
-        mysqli_stmt_close($stmt);
-        header("location: ../admin.php");
-        exit();
+    $stmt = mysqli_stmt_init($conn); # Initialise an new prepared statement
+    # Check if it doesn't fail
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../register.php?error=connexionFailed");
     }
+    mysqli_stmt_bind_param($stmt, "ssss", $matricule, $dateTime, $time, $motif);
+    mysqli_stmt_execute($stmt);
+    # Grabe thr data 
+    mysqli_stmt_close($stmt);
+    header("location: ../admin.php");
+    exit();
 }

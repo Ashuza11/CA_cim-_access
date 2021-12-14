@@ -1,6 +1,7 @@
 <?php 
     include_once 'backend/header.php'
 ?>
+
 <body class="container full-height-grow">
     <header class="main-header">
         <a href="/" class="logo">
@@ -14,10 +15,13 @@
     <?php
             if (isset($_GET["error"])){
                 if ($_GET["error"] == "emptyinput"){
-                    echo '<p style="color: red; padding: 10px 15px; font-weight: bold; text-align: center; font-size: 20px;" >Viellez remplir tous les champs !</p>';
+                    echo '<p style="color: red; padding: 10px 15px; text-align: center; font-size: 18px;" >Viellez remplir tous les champs !</p>';
                 }
                 else if ($_GET["error"] == "Mauvaisidentifiant") {
-                    echo "<p style='color: red; padding: 10px 15px; font-weight: bold; text-align: center; font-size: 20px; margin-bottom: 0px;'>Informations incorrect !</p>";
+                    echo "<p style='color: red; padding: 10px 15px; text-align: center; font-size: 18px;'>Nom incorrect !</p>";
+                }
+                else if ($_GET["error"] == "MauvaisIpwd") {
+                    echo "<p style='color: red; padding: 10px 15px; text-align: center; font-size: 18px;'>Mot de pass incorrect !</p>";
                 }
             }
     ?>
@@ -28,21 +32,23 @@
         </div>
     </section>
     <div class="form" id="form">
-        <form action="backend/login.php" method="POST" id="login-form">
-            <div data-colse-button class="close-btn">&times;</div>
+        <form action="#" method="POST" id="login-form">
+            <div class="time-circle">
+                <div data-colse-button class="close-btn">&times;</div>
+            </div>
             <div class="input-group">
                 <label for="name">Email ou Non d'utilisateur :</label>
-                <input type="text" class="inputfield" name="name">
+                <input type="text" class="inputfield" autofocus name="name">
             </div>
             <div class="input-group">
                 <label for="pwd">Mot de passe :</label>
-                <input type="password" class="inputfield" name="pwd">
+                <input type="password" class="inputfield pwd" name="pwd">
             </div>
             <div class="input-group">
                 <button name="submit" type="submit" id="btn">Se connecter</button>
-            </div>
+            </div> 
             <div id="login-register-text">
-                <p>Vous avez de compte ? <a href="inscriptionAdmin.php">Connectez-vous ici</a></p>
+                <p>Mot de pass aublié ! <a href="admin.php">Changer votre mot de pass</a></p>
             </div>
         </form>
     </div>

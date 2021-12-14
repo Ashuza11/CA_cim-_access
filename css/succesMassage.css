@@ -1,0 +1,31 @@
+.success_massage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+ 
+    max-width: 400px;
+    padding: 6px;
+    background: #cccc;
+    color: #333;
+    font-family: sans-serif;
+    text-align: center;
+    border: 1px solid #aaaa;
+    border-radius: 5px;
+    box-shadow: 0 0 10px black;
+    visibility: hidden;
+    opacity: 0;
+    transition: oppacity 0.2s, visibility 0.2s;
+} 
+.success_massage_visibility {
+    top: 30px;
+    opacity: 1;
+    visibility: visible;
+}
+.success_massage_green {
+    background: #00c02b;
+    border: #009d23;
+    color: #fff;
+}
+

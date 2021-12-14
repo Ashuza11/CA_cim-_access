@@ -3,36 +3,99 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* html, body {
-    margin: 0;
-    height: 100%;
-    overflow: hidden
-} */
 
-.container {
-    min-height: 700px;
+.main-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 140px;
 }
-.container h1 {
+.box h1 {
     margin-bottom: 0;
     margin-top: 0;
     text-align: center;
 }
+
+.container {
+    min-height: 700px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+}
+/* Dash-board */
+.container .tools {
+    background-color: #202027;
+    width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    gap: 50px;
+    height: 400px;
+    width: auto;
+    padding:40px;
+    border-radius: 10px;
+    margin-right: 50px;
+}
+/* Dash-board Tools  */
+div > .fonc {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+div > .fonc button {
+    height: 36px;
+    width: 200px;
+    background-color: #BC3A80;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.tools .btn a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 5000;
+}
+.tools .btn.blue {
+    background-color: #1A62A7;
+}
+.tools h2 {
+    font-size: 36px;
+}
+.tools .fonc .red {
+    width: 36px;
+    height: 36px;
+    color: #BC3A80;
+}
+.tools img {
+    width: 36px;
+    height: 36px;
+}
+/* Dash-board Tools end */
 #register-form {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 25px;
     min-height: 400px;
+    width: 60%;
     background-color: #202027;
     border-radius: 5px;
     border: 1px solid black;
+    border-radius: 10px;
 }
 
 #register-form .form-content {
     display: flex;
-    gap: 150px;
+    justify-content: center;
+    gap: 100px;
 }
 #register-form .form-content .input-group {
     margin-bottom: 2rem;
@@ -47,6 +110,10 @@
     margin-bottom: .6rem;
 }
 
+#register-form .form-content .input-group label span {
+    color: #BC3A80;
+    margin-right: 3px;
+}
 #register-form .form-content .input-group .inputfield:focus {
     border-color: #1762A7;
 }
@@ -73,6 +140,7 @@
     outline: none;
     width: 400px;
     margin-bottom: .7rem;
+    margin-right: 20px;
 }
 .review {
     padding-bottom: 20px;
@@ -92,15 +160,13 @@
 
 .footer p {
     background-color: #202027;
-    height: 50px;
+    height: 100px;
     position: sticky;
     top: 100%;
     font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0;
-    margin-top: 0;
 }
 
 @media(max-width: 900px) and (max-width: 500px){

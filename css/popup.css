@@ -15,6 +15,22 @@
 .form.active {
     transform: translate(-25%, -65%) scale(1);
 }
+/* Link Massege  */
+#login-form .login-register-text, p {
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    color: #2F303A;
+}
+
+#login-form .login-register-text p, a {
+    margin-left: 3px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #1762A7;
+    text-decoration: underline;
+}
+/* End  */
 
 #login-form {
     border: 1px solid black;
@@ -22,7 +38,7 @@
     max-width: 50%;
     padding: 2rem 4rem;
     border-radius: 5px;
-    background-color: #202027;
+    background-color: #F7F8FC;
     position: relative;
 }
 
@@ -39,48 +55,62 @@
 .input-group label {
     font-weight: bold;
     margin-bottom: .6rem;
+    color: #2F303A;
 }
+
 .inputfield {
     outline: none;
     background: none;
-    border: 1px solid rgb(23, 98, 167, .3);
+    border: 1px solid #20202755;
     font-size: 1rem;
-    color: inherit;
+    color: #2F303A;
     padding: .53em;
     border-radius: 5px;
 }
+.input-group .inputfield.pwd {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 0.1ch;
+}
 .inputfield:focus {
-    border-color: #1762A7;
+    border-color: #000;
 }
 
 #btn {
-    color: white;
+    color: #2F303A;
     text-decoration: none;
-    background-color: #1762A7;
+    background-color: #EEF6FB;
     padding: .75rem 1.5rem;  
     border-radius: .6rem;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
     outline: none;
     border: none;
     cursor: pointer;
+    box-shadow: 1px 2px #20202755;
 }
 /* Pop up form end */
 
 /*  Close button */
+.form .time-circle {
+    width: 30px;
+    height: 30px;
+    background-color:black;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border-radius: 50%;
+}
+
 .form .close-btn {
     cursor: pointer;
-    border: none;
-    outline: none;
     background: none;
     font-size: 1.25rem;
     font-weight: bold;
     color: white;
-    position: absolute;
-    top: 20px;
-    right: 15px;
+    text-align: center;
 }
 
+/* Form close btn end  */
 #overlay {
     position: fixed;
     opacity: 0;
