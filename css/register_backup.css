@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 140px;
+}
+.box h1 {
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+}
+
+.container {
+    min-height: 700px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+}
+/* Dash-board */
+.container .tools {
+    background-color: #202027;
+    width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    gap: 50px;
+    height: 400px;
+    width: auto;
+    padding:40px;
+    border-radius: 10px;
+    margin-right: 50px;
+}
+/* Dash-board Tools  */
+div > .fonc {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+div > .fonc button {
+    height: 36px;
+    width: 200px;
+    background-color: #BC3A80;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.tools .btn a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 5000;
+}
+.tools .btn.blue {
+    background-color: #1A62A7;
+}
+.tools h2 {
+    font-size: 36px;
+}
+.tools .fonc .red {
+    width: 36px;
+    height: 36px;
+    color: #BC3A80;
+}
+.tools img {
+    width: 36px;
+    height: 36px;
+}
+/* Dash-board Tools end */
+#register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    min-height: 400px;
+    width: 60%;
+    background-color: #202027;
+    border-radius: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#register-form .form-content {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+#register-form .form-content .input-group {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+#register-form .form-content .input-group label {
+    margin-bottom: .6rem;
+}
+
+#register-form .form-content .input-group label span {
+    color: #BC3A80;
+    margin-right: 3px;
+}
+#register-form .form-content .input-group .inputfield:focus {
+    border-color: #1762A7;
+}
+#register-form .form-content .input-group .inputfield {
+    outline: none;
+    background: none;
+    border: 1px solid  rgb(23, 98, 167, .3);
+    font-size: 1rem;
+    color: inherit;
+    padding: .53em;
+    border-radius: 5px;
+}
+
+.input-group #btn {
+    color: inherit;
+    background-color: #1762A7;
+    text-decoration: none;
+    padding: .75rem 1.5rem;
+    border-radius: .6rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    width: 400px;
+    margin-bottom: .7rem;
+    margin-right: 20px;
+}
+.review {
+    padding-bottom: 20px;
+}
+
+.review a {
+    font-size: 15px;
+    text-decoration: underline;
+    color: #0066CC;
+    letter-spacing: .1em;
+}
+
+#register-form .form-right .inputfield {
+    width: 70%;
+}
+
+
+.footer p {
+    background-color: #202027;
+    height: 100px;
+    position: sticky;
+    top: 100%;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media(max-width: 900px) and (max-width: 500px){
+    .box {
+        display: flex;
+        flex-direction: column;
+    }
+}

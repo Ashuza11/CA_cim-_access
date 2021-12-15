@@ -28,7 +28,7 @@
             <header class="menu_title">Menu</header>
             <ul>
                 <li class="active"><i><img src="img/icon/analytics.svg" alt="icon"></i><a href="#">Aperçu</a></li>
-                <li><i><img src="img/icon/register.svg" alt="icon"></i><a href="#">Ajouter une personne</a></li>
+                <li><i><img src="img/icon/register.svg" alt="icon"></i><a href="studentRegister.php">Ajouter une personne</a></li>
                 <li><i><img src="img/icon/traque.svg" alt="icon"></i><a href="#">Traquet une personne</a></li>
                 <li><i><img src="img/icon/folder.svg" alt="icon"></i><a href="#">Rapport</a></li>
                 <li><i><img src="img/icon/settings.svg" alt="icon"></i><a href="#">Paramètre</a></li>
@@ -37,50 +37,56 @@
         <section class="center_box">
             <h1 class="title">Aperçu</h1>
             <div class="box_container">
-                <div class="box_3">
-                    <div class="stat_box">
-                        <h5>Nombre d'étudiant enregistrés</h5>
-                        <h2>200</h2>
-                    </div>
-                    <div class="stat_box">
-                        <h5>Nombre d'étudiant traqués</h5>
-                        <h2>600</h2>
-                    </div>
-                    <div class="stat_box">
-                        <h5>Nombre des personnes Enregistrées</h5>
-                        <h2>100</h2>
-                    </div>
+                <div class="stat_box">
+                    <h5>Nombre d'étudiant enregistrés</h5>
+                    <h2>200</h2>
                 </div>
-                <div class="box_3">
-                    <div class="stat_box">
-                        <h5>FSTA</h5>
-                        <h2>200</h2>
-                    </div>
-                    <div class="stat_box">
-                        <h5>FSEG</h5>
-                        <h2>200</h2>
-                    </div>
-                    <div class="stat_box">
-                        <h5>Nombre des personnes Traquées</h5>
-                        <h2>200</h2>
-                    </div>
+                <div class="stat_box">
+                    <h5>Nombre d'étudiant traqués</h5>
+                    <h2>600</h2>
                 </div>
-                <div class="box_3">
-                    <div class="stat_box">
-                        <h5>FSDC</h5>
-                        <h2>200</h2>
-                    </div>
-                    <div class="stat_box">
-                        <h5>FMED</h5>
-                        <h2>200</h2>
-                    </div>
-                    <div class="stat_box">
-                        <h5>Nombre total d'heurs</h5>
-                        <h2>12435</h2>
-                    </div>
+                <div class="stat_box">
+                    <h5>Nombre des personnes Enregistrées</h5>
+                    <h2>100</h2>
+                </div>
+                <div class="stat_box">
+                    <h5>FSTA</h5>
+                    <h2>200</h2>
+                </div>
+                <div class="stat_box">
+                    <h5>FSEG</h5>
+                    <h2>200</h2>
+                </div>
+                <div class="stat_box">
+                    <h5>Nombre des personnes Traquées</h5>
+                    <h2>200</h2>
+                </div>
+                <div class="stat_box">
+                    <h5>FSDC</h5>
+                    <h2>200</h2>
+                </div>
+                <div class="stat_box">
+                    <h5>FD</h5>
+                    <h2>200</h2>
+                </div>
+                <div class="stat_box">
+                    <h5>Nombre total d'heures</h5>
+                    <h2>12435</h2>
+                </div>
+                <div class="stat_box">
+                    <h5>FPSE</h5>
+                    <h2>200</h2>
+                </div>
+                <div class="stat_box">
+                    <h5>FMED</h5>
+                    <h2>200</h2>
+                </div>
+                <div class="stat_box">
+                    <h5>FT</h5>
+                    <h2>200</h2>
                 </div>
             </div>
-            </section>
+        </section>
     </main>
     <!-- Main contents Wrapper-->
     <footer class="footer">

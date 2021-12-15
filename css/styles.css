@@ -53,6 +53,7 @@ button a:hover {
     font-family: poppin;
     margin-left: 1rem;
     letter-spacing: 0.2rem;
+    font-weight: 900;
 }
 .logo-text .a {
     font-size: 30px;
