@@ -29,7 +29,7 @@
             <ul>
                 <li class="active"><i><img src="img/icon/analytics.svg" alt="icon"></i><a href="#">Aperçu</a></li>
                 <li><i><img src="img/icon/register.svg" alt="icon"></i><a href="studentRegister.php">Ajouter une personne</a></li>
-                <li><i><img src="img/icon/traque.svg" alt="icon"></i><a href="#">Traquet une personne</a></li>
+                <li><i><img src="img/icon/traque.svg" alt="icon"></i><a href="#">Traquer une personne</a></li>
                 <li><i><img src="img/icon/folder.svg" alt="icon"></i><a href="#">Rapport</a></li>
                 <li><i><img src="img/icon/settings.svg" alt="icon"></i><a href="#">Paramètre</a></li>
             </ul>
