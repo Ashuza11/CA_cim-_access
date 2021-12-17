@@ -92,6 +92,8 @@
 }
 /* Menu End */
 
+
+
 /* Contents */
 .main-contents .main .center_box {
     display: flex;
@@ -136,7 +138,6 @@ section .box_container{
     font-size: 16px;
     color: var(--main_title_color);
 }
-
 
 /* Footer */
 .footer p {

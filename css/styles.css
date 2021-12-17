@@ -119,8 +119,8 @@ button a:hover {
     margin-bottom: 2rem;
 }
 .button {
-    color: #2F303A;
-    background-color: #EEF6FB;
+    color: #000;
+    background-color: #61b1dcc2;;
     padding: .75rem 1.5rem;  
     border-radius: .6rem;
     font-weight: bold;
