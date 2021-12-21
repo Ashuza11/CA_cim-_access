@@ -5,115 +5,174 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/presence.css">
-    <link rel="stylesheet" href="css/succesMassage.css">
+    <link rel="stylesheet" href="css/register.css">
     <link rel = "icon" href = "img/logo.png" type = "image/x-icon">
     <title>Cimé Access</title> 
 </head>
-<body class="full-height-grow">
+<body class="main-contents">
+    <!-- Header Nav bar-->
     <header class="main-header">
         <a href="/" class="logo">
             <img src="img/logo.png">
             <div class="logo-text"><i class="a">C</i>imé <i class="b">A</i>ccess</div>
         </a>
         <nav class="main-nav">
-            <button><a href="admin.php">Dashboard</a></button>
+            <button class="deconect menu"><a href="index.php">Déconnexion</a></button>
         </nav>
     </header>
-    <!-- <div class="success_massage">Enregistrement réuissi avec succès</div> -->
-    <main class="container">
-        <h1 class="title">Traquet la présence</h1>
-        <div class="box-contente">
-            <div class="tools">
-                <h2>Outils</h2>
-                <div class="fonc">
-                    <img src="img/file.png" alt="icon">
-                    <button class="btn blue"><a href="#">inporté les étudiant</a></button>
+    <!-- Header Nav bar End -->
+
+    <!-- Main contents -->
+    <main class="main">
+        <div class="menu">
+            <header class="menu_title">Menu</header>
+            <ul>
+                <li><i><img src="img/icon/analytics.svg" alt="icon"></i><a href="admin.php">Aperçu</a></li>
+                <li><i><img src="img/icon/register.svg" alt="icon"></i><a href="studentRegister.php">Ajouter une personne</a></li>
+                <li class="active"><i><img src="img/icon/traque.svg" alt="icon"></i><a href="#">Traquer une personne</a></li>
+                <li><i><img src="img/icon/folder.svg" alt="icon"></i><a href="report.php">Rapport</a></li>
+                <li><i><img src="img/icon/settings.svg" alt="icon"></i><a href="#">Paramètre</a></li>
+            </ul>
+        </div>
+        <section class="center_box">
+            <h1 class="title">Traquer une personne</h1>
+            <div class="container">
+                <div class="form_container">
+                    <form action="#" method="POST" class="form">
+                        <h3>Etudiant</h3>
+                        <div class="form-content  add">
+                            <div class="form-left">
+                                <div class="input-group">
+                                    <label for="name">Matricule <span class="required">*</span> :</label>
+                                    <input type="text" class="inputfield" name="matricule" placeholder="Example: 16635" pattern="[0-9]+" maxlength="5" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="name">Motif <span class="required">*</span> :</label>
+                                    <select name="" class="inputfield select-style">
+                                        <option value="#">Sélectionner une option</option>
+                                        <option value="Recherche">Recherche</option>
+                                        <option value="Formation"> Formation</option>
+                                        <option value="Cours">Cours</option>
+                                        <option value="Cours">Conférence</option>
+                                        <option value="Impression">Impression et saisie</option>
+                                        <option value="5">courant</option>
+                                        <option value="6">Stage</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-right">
+                                <div class="input-group">
+                                    <label for="name">Durée <span class="required">*</span> :</label>
+                                    <input type="text" class="inputfield" name="" placeholder="Entrer la durée en munites"  required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-group">
+                            <button name="submit" type="submit" id="btn" data-table-target="#showStudent">Traquer</button>
+                        </div>
+                    </form>
+                    <div class="table_result hide" id="showStudent">
+                        <h3>Etudiants récemment traqués</h3>
+                        <table class="table_reault">
+                            <tr>
+                                <th>Matricule</th>
+                                <th>Durée</th>
+                                <th>Promotion</th>
+                            </tr>
+                            <tr>
+                                <td>15846</td>
+                                <td>60</td>
+                                <td>Motif</td>
+                            </tr>
+                            <tr>
+                                <td>15446</td>
+                                <td>30</td>
+                                <td>Motif</td>
+                            </tr>
+                            <tr>
+                                <td>15446</td>
+                                <td>30</td>
+                                <td>Motif</td>
+                            </tr>
+                            <tr>
+                                <td>15446</td>
+                                <td>30</td>
+                                <td>Motif</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-                <div class="fonc">
-                    <img class="red" src="img/Vector.png" alt="icon">
-                    <button class="btn"><a href="#">Rapport</a></button>
-                </div>
-                <div class="fonc">
-                    <img src="img/locker 1.png" alt="icon">
-                    <button class="btn blue"><a href="#">Changer le mot de pass</a></button>
+
+                <div class="form_container">
+                    <form action="#" method="POST" class="form">
+                        <h3>Visiteur</h3>
+                        <div class="form-content add">
+                            <div class="form-left">
+                                <div class="input-group">
+                                    <label for="name">Téléphone <span class="required">*</span> :</label>
+                                    <input type="tel" class="inputfield" placeholder="Entrer le numero de téléphone" name="" required>
+                                </div>
+                            </div>
+                            <div class="form-right">
+                                <div class="input-group">
+                                    <label for="name">Durée <span class="required">*</span> :</label>
+                                    <input type="text" class="inputfield" name="" placeholder="Entrer la durée en munites"  required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="name">Motif <span class="required">*</span> :</label>
+                                    <select name="" class="inputfield select-style">
+                                        <option value="#">Sélectionner une option</option>
+                                        <option value="Recherche">Recherche</option>
+                                        <option value="Formation"> Formation</option>
+                                        <option value="Cours">Entretien</option>
+                                        <option value="Impression">Conférence</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-group">
+                            <button name="submit" type="submit" id="btn" data-table-target="#show">Traquer</button>
+                        </div>
+                    </form>
+
+                    <div class="table_result hide" id="show">
+                        <h3>Visiteurs récemment traqués</h3>
+                        <table class="table_reault">
+                            <tr>
+                                <th>Téléphone</th>
+                                <th>Durée</th>
+                                <th>Motif</th>
+                            </tr>
+                            <tr>
+                                <td>0970475609</td>
+                                <td>50</td>
+                                <td>Entretien</td>
+                            </tr>
+                            <tr>
+                                <td>0978346575</td>
+                                <td>50</td>
+                                <td>Conférence</td>
+                            </tr>
+                            <tr>
+                                <td>0978346575</td>
+                                <td>60</td>
+                                <td>Conférence</td>
+                            </tr>
+                            <tr>
+                                <td>0978346575</td>
+                                <td>50</td>
+                                <td>Conférence</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <form action="backend/traquet.php" method="POST" id="register-form">
-                <div class="errors_massege">
-                    <?php
-                        if (isset($_GET["error"])){
-                            if ($_GET["error"] == "EtudiantIntrouve"){
-                                echo '<p style="color: red; padding: 10px 15px; text-align: center; font-size: 18px;" >Etudiant non enregistrer !</p>';
-                            }
-                        }
-                    ?>
-                </div>
-                <div class="form-content">
-                    <div class="form-left">
-                        <div class="input-group">
-                            <label for="name">Matricule <span class="required">*</span> :</label>
-                            <input type="text" class="inputfield" autofocus name="Matricule" placeholder="Example: 16635" pattern="[0-9]+" maxlength="5" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="name">Heure et date d'entre <span class="required">*</span> :</label>
-                            <input type="datetime-local" id="date-time"  name="dateTime" class="inputfield"
-                                name="time" required>
-                            
-                        </div>
-                        <div class="input-group">
-                            <label for="name">Durée <span class="required">*</span> :</label>
-                            <input type="text" class="inputfield" name="time" placeholder="Example: 2h:30 ou 1h" maxlength="4" required>
-                        </div>
-                    </div>
-                    <div class="form-right">
-                        <h3>Motif <span class="required">*</span> :</h3>
-                        <div id="radio-btn">
-                            <label for="Recherche" class="lable">
-                                <input type="radio"  name="motif"  id="Recherche" class="radio_input" value="Recherche" required>
-                                <div class="radio_Radio"></div>
-                                Recherche
-                            </label>
-                            <label for="Formation" class="lable">
-                                <input type="radio"  name="motif"  id="Formation" class="radio_input" value="Formation">
-                                <div class="radio_Radio"></div>
-                                Formation
-                            </label>
-                            <label for="Impression" class="lable">
-                                <input type="radio" name="motif" id="Impression"  class="radio_input" value="Impretion">
-                                <div class="radio_Radio"></div>
-                                Impression
-                            </label>
-                            <label for="Photocopie" class="lable">
-                                <input type="radio"  name="motif" id="Photocopie" class="radio_input" value="photocopie">
-                                <div class="radio_Radio"></div>
-                                Photocopie
-                            </label>
-                            <label for="courant" class="lable">
-                                <input type="radio"  name="motif" id="courant" class="radio_input" value="Courant">
-                                <div class="radio_Radio"></div>
-                                courant
-                            </label>
-                            <label for="Stage" class="lable">
-                                <input type="radio"  name="motif" id="Stage" class="radio_input" value="Stage">
-                                <div class="radio_Radio"></div>
-                                Stage
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <button name="submit" type="submit" id="btn">Traquet</button>
-                </div>
-                <div class="review">
-                    <p class="login-register-text">Pas encore enregistré ? ,<a href="studentRegister.php"> Enregistre la personnée</a></p>
-                </div>
-            </form>
-        </div>
+        </section>
     </main>
+    <!-- Main contents Wrapper-->
     <footer class="footer">
         <p> Copyright &#xa9;2021, Cimé Access.ulpgl.net</p>
     </footer>
-    <!-- <script defer src="js/success.js"></script> -->
+    <script defer src="js/table.js"></script>
 </body>
 </html>

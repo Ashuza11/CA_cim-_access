@@ -28,10 +28,10 @@
             <header class="menu_title">Menu</header>
             <ul>
                 <li><i><img src="img/icon/analytics.svg" alt="icon"></i><a href="admin.php">Aperçu</a></li>
-                <li class="active"><i><img src="img/icon/register.svg" alt="icon"></i><a href="#">Ajouter une personne</a></li>
+                <li><i><img src="img/icon/register.svg" alt="icon"></i><a href="student~">Ajouter une personne</a></li>
                 <li><i><img src="img/icon/traque.svg" alt="icon"></i><a href="traque.php">Traquer une personne</a></li>
                 <li><i><img src="img/icon/folder.svg" alt="icon"></i><a href="report.php">Rapport</a></li>
-                <li><i><img src="img/icon/settings.svg" alt="icon"></i><a href="#">Paramètre</a></li>
+                <li class="active"><i><img src="img/icon/settings.svg" alt="icon"></i><a href="#">Paramètre</a></li>
             </ul>
         </div>
         <section class="center_box">
@@ -96,31 +96,6 @@
                             <button name="submit" type="submit" id="btn" data-table-target=".table_result">Enregistrer</button>
                         </div>
                     </form>
-                    <div class="table_result hide" id="showStudentTable">
-                        <h3>Etudiants récemment enregistrés</h3>
-                        <table class="table_reault">
-                            <tr>
-                                <th>Nom</th>
-                                <th>Matricule</th>
-                                <th>Faculté</th>
-                                <th>Promotion</th>
-                            </tr>
-                            <tr>
-                                <td>Alfreds Futterkiste</td>
-                                <td>Maria Anders</td>
-                                <td>Germany</td>
-                                <td>Germany</td>
-                            </tr>
-                            <tr>
-                                <td>Centro comercial Moctezuma</td>
-                                <td>Francisco Chang</td>
-                                <td>Mexico</td>
-                                <td>Germany</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-
                 <div class="form_container">
                     <form action="#" method="POST" class="form">
                         <h3>Visiteur</h3>
@@ -150,30 +125,6 @@
                             <button name="submit" type="submit" id="btn" data-table-target="#show">Enregistrer</button>
                         </div>
                     </form>
-
-                    <div class="table_result hide" id="show">
-                        <h3>Visiteurs récemment enregistrés</h3>
-                        <table class="table_reault">
-                            <tr>
-                                <th>Nom</th>
-                                <th>Téléphone</th>
-                                <th>Email</th>
-                                <th>Adresse</th>
-                            </tr>
-                            <tr>
-                                <td>Alfreds</td>
-                                <td>Maria Anders</td>
-                                <td>Germany</td>
-                                <td>Germany</td>
-                            </tr>
-                            <tr>
-                                <td>Centro comercial Moctezuma</td>
-                                <td>Germany</td>
-                                <td>Germany</td>
-                                <td>Germany</td>
-                            </tr>
-                        </table>
-                    </div>
                 </div>
             </div>
         </section>
