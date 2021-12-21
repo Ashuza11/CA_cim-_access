@@ -1,14 +1,14 @@
 <?php
 
-# Cimé Access web app db management 
-$serverName = "localhost";
-$dBuserName = "root";
-$dBpassword = "";
-$dBname = "cimeaccess";
+# Cimé Access web app db management
+$serverName = 'localhost';
+$dBuserName = 'root';
+$dBpassword = '';
+$dBname = 'cime_access';
 
-$conn = mysqli_connect($serverName, $dBuserName, $dBpassword, $dBname);
+$conn = mysqli_connect( $serverName, $dBuserName, $dBpassword, $dBname );
 
-# Gerer les erros 
-if (!$conn) {
-    die("connection failed: " . mysqli_connect_error());
+# Gerer les erros
+if ( !$conn ) {
+    die( 'connection failed: ' . mysqli_connect_error() );
 }

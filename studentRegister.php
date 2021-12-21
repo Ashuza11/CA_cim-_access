@@ -30,7 +30,7 @@
                 <li><i><img src="img/icon/analytics.svg" alt="icon"></i><a href="admin.php">Aperçu</a></li>
                 <li class="active"><i><img src="img/icon/register.svg" alt="icon"></i><a href="#">Ajouter une personne</a></li>
                 <li><i><img src="img/icon/traque.svg" alt="icon"></i><a href="#">Traquer une personne</a></li>
-                <li><i><img src="img/icon/folder.svg" alt="icon"></i><a href="#">Rapport</a></li>
+                <li><i><img src="img/icon/folder.svg" alt="icon"></i><a href="Rapport.php">Rapport</a></li>
                 <li><i><img src="img/icon/settings.svg" alt="icon"></i><a href="#">Paramètre</a></li>
             </ul>
         </div>
@@ -44,21 +44,21 @@
                             <div class="form-left">
                                 <div class="input-group">
                                     <label for="name">Nom <span class="required">*</span> :</label>
-                                    <input type="text" placeholder="Entrer le nom complet" class="inputfield" autofocus name="name" required>
+                                    <input type="text" placeholder="Entrer le nom complet" class="inputfield" autofocus autocomplete="none" name="name" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Matricule <span class="required">*</span> :</label>
-                                    <input type="text" class="inputfield" name="matricule" placeholder="Example: 16635" pattern="[0-9]+" maxlength="5" required>
+                                    <input type="text" class="inputfield" autocomplete="none" name="matricule" placeholder="Example: 16635" pattern="[0-9]+" maxlength="5" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Téléphone <span class="required">*</span> :</label>
-                                    <input type="tel" class="inputfield" placeholder="Entrer le numero de téléphone" name="" required>
+                                    <input type="tel" autocomplete="none" class="inputfield" placeholder="Entrer le numero de téléphone" name="tel" required>
                                 </div>
                             </div>
                             <div class="form-right">
                                 <div class="input-group">
                                     <label for="name">Faculté <span class="required">*</span> :</label>
-                                    <select name="" class="inputfield select-style">
+                                    <select name="fac" class="inputfield select-style">
                                         <option value="#">Sélectionner une option</option>
                                         <option value="FSTA">FSTA</option>
                                         <option value="FD">FD</option>
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Promotion <span class="required">*</span> :</label>
-                                    <select name=""  class="inputfield">
+                                    <select name="prom"  class="inputfield">
                                         <option class="active" value="#">Sélectionner une option</option>
                                         <option value="g0">G0</option>
                                         <option value="g1">G1</option>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Email <span class="required">*</span> :</label>
-                                    <input type="email" class="inputfield" name="" placeholder="Entrer l'amail"  required>
+                                    <input type="email" class="inputfield" autocomplete="none" name="email" placeholder="Entrer l'email"  required>
                                 </div>
                             </div>
                         </div>
@@ -105,44 +105,47 @@
                                 <th>Faculté</th>
                                 <th>Promotion</th>
                             </tr>
-                            <tr>
-                                <td>Alfreds Futterkiste</td>
-                                <td>Maria Anders</td>
-                                <td>Germany</td>
-                                <td>Germany</td>
-                            </tr>
-                            <tr>
-                                <td>Centro comercial Moctezuma</td>
-                                <td>Francisco Chang</td>
-                                <td>Mexico</td>
-                                <td>Germany</td>
-                            </tr>
+                            <?php
+                        include 'backend/AfficherTableau.php';
+                            if(mysqli_num_rows($query_run1)>0){
+                                foreach($query_run1 as $items1){
+                        ?>
+                                    <tr>
+                                        <td><?php echo $items1 ['studentName']  ;?></td>
+                                        <td><?php echo $items1 ['matricule']  ;?></td>
+                                        <td><?php echo $items1 ['faculty']  ;?></td>
+                                        <td><?php echo $items1 ['promotion']  ;?></td>
+                                    </tr>
+                        <?php
+                                }
+                             }
+                        ?>
                         </table>
                     </div>
                 </div>
 
                 <div class="form_container">
-                    <form action="#" method="POST" class="form">
+                    <form action="backend/visiteurRegister.php" method="POST" class="form">
                         <h3>Visiteur</h3>
                         <div class="form-content add">
                             <div class="form-left">
                                 <div class="input-group">
                                     <label for="name">Nom <span class="required">*</span> :</label>
-                                    <input type="text" placeholder="Nom le nom complet" class="inputfield" name="name" autofocus  required>
+                                    <input type="text" placeholder="Nom le nom complet" class="inputfield" name="namevisiteur" autofocus  required>
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Téléphone <span class="required">*</span> :</label>
-                                    <input type="tel" class="inputfield" placeholder="Entrer le numero de téléphone" name="" required>
+                                    <input type="tel" class="inputfield" placeholder="Entrer le numero de téléphone" name="telvisiteur" required>
                                 </div>
                             </div>
                             <div class="form-right">
                                 <div class="input-group">
                                     <label for="name">Email <span class="required">*</span> :</label>
-                                    <input type="email" class="inputfield" name="" placeholder="Entrer l'amail"  required>
+                                    <input type="email" class="inputfield" name="emailvisiteur" placeholder="Entrer l'amail"  required>
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Adresse <span class="required">*</span> :</label>
-                                    <input type="text" class="inputfield" placeholder="Entrer l'adresse"  name="" required>
+                                    <input type="text" class="inputfield" placeholder="Entrer l'adresse"  name="adressevisiteur" required>
                                 </div>
                             </div>
                         </div>
@@ -160,18 +163,20 @@
                                 <th>Email</th>
                                 <th>Adresse</th>
                             </tr>
-                            <tr>
-                                <td>Alfreds</td>
-                                <td>Maria Anders</td>
-                                <td>Germany</td>
-                                <td>Germany</td>
-                            </tr>
-                            <tr>
-                                <td>Centro comercial Moctezuma</td>
-                                <td>Germany</td>
-                                <td>Germany</td>
-                                <td>Germany</td>
-                            </tr>
+                            <?php
+                            if(mysqli_num_rows($query_run)>0){
+                                foreach($query_run as $items){
+                        ?>
+                                    <tr>
+                                        <td><?php echo $items ['guestName']  ;?></td>
+                                        <td><?php echo $items ['guestEmail']  ;?></td>
+                                        <td><?php echo $items ['telephone']  ;?></td>
+                                        <td><?php echo $items ['Adresse']  ;?></td>
+                                    </tr>
+                        <?php
+                                }
+                             }
+                        ?>
                         </table>
                     </div>
                 </div>

@@ -27,7 +27,7 @@ function PwdMatch($pwd, $pwdRepeat) {
 # Cheker si l'utilisateur existe déjà dans la base. 
 # Ussed for the sign up for and for the login form 
 function AdminExists($conn,  $name, $email) {
-    $sql = "SELECT * FROM admintable WHERE adminName = ? OR adminEmail = ?;"; # Close of sql statmnt and php statmnt
+    $sql = "SELECT * FROM admin_table WHERE adminNom = ? OR adminEmail = ?;"; # Close of sql statmnt and php statmnt
     # unitialise a new statemment/ prevenir l'utilisateur de questionner la base via le fomulaire 
     $stmt = mysqli_stmt_init($conn); # stmt statement to execuite
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -55,7 +55,7 @@ function AdminExists($conn,  $name, $email) {
 
 
 function creatAdmin($conn, $name,  $email, $pwd){
-    $sql = "INSERT INTO admintable (adminName, adminEmail, adminPwd) VALUES (?, ?, ?);"; # Close 
+    $sql = "INSERT INTO admin_table (adminNom, adminEmail, adminPwd) VALUES (?, ?, ?);"; # Close 
     $stmt = mysqli_stmt_init($conn); # Initialise an new prepared statement
     # Check if it doesn't fail
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -75,7 +75,6 @@ function creatAdmin($conn, $name,  $email, $pwd){
     header("location: ../index.php?error=none");
     exit();
 }
-
 
 
 # Login Section 
@@ -113,7 +112,7 @@ function loginAdmin($conn, $name, $pwd) {
         # Usage of sessions using a session fuction built in php
         session_start();
         $_SESSION["adminId"] = $adminExixts["adminId"];
-        $_SESSION["adminName"] = $adminExixts["adminName"];
+        $_SESSION["adminNom"] = $adminExixts["adminNom"];
         header("location: ../admin.php");
         exit();
     }
@@ -123,11 +122,11 @@ function loginAdmin($conn, $name, $pwd) {
 
 # Check if student exixte 
 function studentExists($conn, $name, $matricule) {
-    $sql = "SELECT * FROM register WHERE  studentName = ? OR matricule = ?;";
+    $sql = "SELECT * FROM register_student WHERE  studentName = ? OR matricule = ?;";
 
     $stmt = mysqli_stmt_init($conn); # stmt statement to execuite
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../register.php?error=stmtfailed");
+        header("location: ../studentRegister.php?error=stmtfailed");
         exit();
     }
     # if everything is ok / Pass data for user
@@ -149,9 +148,9 @@ function studentExists($conn, $name, $matricule) {
     mysqli_stmt_close($stmt);
 }
 # Lok for wheter the user provide infos 
-function emptystudentInfo($name, $postName, $lastName, $matricule,  $faculte, $promotion) {
+function emptystudentInfo($name, $email, $telephone, $matricule,  $faculte, $promotion) {
     $result;
-    if (empty($name) || empty($postName)){
+    if (empty($name) || empty($email)){
         $result = true;
     }
     else {
@@ -162,22 +161,22 @@ function emptystudentInfo($name, $postName, $lastName, $matricule,  $faculte, $p
 }
 
 # Register the student 
-function  registerStudent($conn, $name, $postName, $lastName, $matricule, $faculte, $promotion) {
-    $sql = "INSERT INTO register (studentName, studentPostName, studentlastName,  matricule, faculty, promotion) VALUES (?, ?, ?, ?, ?, ?);";
+function  registerStudent($conn, $name, $email, $telephone, $matricule, $faculte, $promotion) {
+    $sql = "INSERT INTO register_student (studentName,studentEmail,telephone,matricule,faculty,promotion) VALUES (?, ?, ?, ?, ?, ?);";
 
     $stmt = mysqli_stmt_init($conn); # Initialise an new prepared statement
     # Check if it doesn't fail
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../register.php?error=connexionFailed");
+        header("location: ../studentRegister.php?error=connexionFailed");
     }
-    mysqli_stmt_bind_param($stmt, "ssssss", $name, $postName, $lastName, $matricule, $faculte, $promotion);
+    mysqli_stmt_bind_param($stmt, "ssssss", $name, $email, $telephone, $matricule, $faculte, $promotion);
     mysqli_stmt_execute($stmt);
     # Grabe thr data 
 
     mysqli_stmt_close($stmt);
 
     # Direct the user to the home page after signing him up
-    header("location: ../traque.php?error=none");
+    header("location: ../studentRegister.php?error=none");
     exit();
 }
 
@@ -201,3 +200,70 @@ function traquetPresence($conn, $matricule, $dateTime, $time, $motif) {
     header("location: ../admin.php");
     exit();
 }
+
+
+
+# Register visiteur 
+
+# Check if guest exixte 
+function visiteurExists($conn, $name, $telephone) {
+    $sql = "SELECT * FROM register_guest WHERE  guestName = ? OR telephone = ?;";
+
+    $stmt = mysqli_stmt_init($conn); # stmt statement to execuite
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../studentRegister.php?error=stmtfailed");
+        exit();
+    }
+    # if everything is ok / Pass data for user
+    mysqli_stmt_bind_param($stmt, "ss", $name, $telephone);
+    mysqli_stmt_execute($stmt);
+
+    # Grabe the data  from the data base
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    # Faching the data as an associative array
+    # Grab the data with username
+    if ($row = mysqli_fetch_assoc($resultData)){
+        return $row; # return all the data if the user exist in the data base 
+    }
+    else {
+        $result = false;
+        return $result;
+    }
+    mysqli_stmt_close($stmt);
+}
+# Lok for wheter the user provide infos 
+function emptyvisiteurInfo($name, $email, $telephone, $adresse) {
+    $result;
+    if (empty($name) || empty($telephone)){
+        $result = true;
+    }
+    else {
+        $result = false;
+    }
+    return $result;
+
+}
+
+# Register the guest
+function  registervisiteur($conn, $name, $email, $telephone, $adresse) {
+    $sql = "INSERT INTO register_guest (guestName,guestEmail,telephone,adresse) VALUES (?, ?, ?, ?);";
+
+    $stmt = mysqli_stmt_init($conn); # Initialise an new prepared statement
+    # Check if it doesn't fail
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../studentRegister.php?error=connexionFailed");
+    }
+    mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $telephone, $adresse);
+    mysqli_stmt_execute($stmt);
+    # Grabe thr data 
+
+    mysqli_stmt_close($stmt);
+
+    # Direct the user to the home page after signing him up
+    header("location: ../studentRegister.php?error=none");
+
+    
+    exit();
+}
+?>

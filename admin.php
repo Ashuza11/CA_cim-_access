@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    include 'backend/adminFunction.php';
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,10 +30,10 @@
         <div class="menu">
             <header class="menu_title">Menu</header>
             <ul>
-                <li class="active"><i><img src="img/icon/analytics.svg" alt="icon"></i><a href="#">Aperçu</a></li>
+                <li class="active"><i><img src="img/icon/analytics.svg" alt="icon"></i><a href="admin.php">Aperçu</a></li>
                 <li><i><img src="img/icon/register.svg" alt="icon"></i><a href="studentRegister.php">Ajouter une personne</a></li>
                 <li><i><img src="img/icon/traque.svg" alt="icon"></i><a href="#">Traquer une personne</a></li>
-                <li><i><img src="img/icon/folder.svg" alt="icon"></i><a href="#">Rapport</a></li>
+                <li><i><img src="img/icon/folder.svg" alt="icon"></i><a href="RapportEnregistrement.php">Rapport</a></li>
                 <li><i><img src="img/icon/settings.svg" alt="icon"></i><a href="#">Paramètre</a></li>
             </ul>
         </div>
@@ -39,51 +42,88 @@
             <div class="box_container">
                 <div class="stat_box">
                     <h5>Nombre d'étudiant enregistrés</h5>
-                    <h2>200</h2>
+                    <?php
+                        
+                        $output = EtudiantEnregistre();
+                        echo '<h2> '.$output.'</h2>';
+                    ?>
                 </div>
                 <div class="stat_box">
                     <h5>Nombre d'étudiant traqués</h5>
-                    <h2>600</h2>
+                    <?php
+                        $output1 = EtudiantTraque();
+                        echo '<h2> '.$output1.'</h2>';
+                    ?>
                 </div>
                 <div class="stat_box">
                     <h5>Nombre des personnes Enregistrées</h5>
-                    <h2>100</h2>
+                    <?php
+                        $output1 = VisiteurEnregistre();
+                        echo '<h2> '.$output1.'</h2>';
+                    ?>
                 </div>
                 <div class="stat_box">
                     <h5>FSTA</h5>
-                    <h2>200</h2>
+                    <?php
+                        $output1 = FSTAEnregistre();
+                        echo '<h2> '.$output1.'</h2>';
+                    ?>
                 </div>
                 <div class="stat_box">
                     <h5>FSEG</h5>
-                    <h2>200</h2>
+                    <?php
+                        $output1 = FSEGEnregistre();
+                        echo '<h2> '.$output1.'</h2>';
+                    ?>
                 </div>
                 <div class="stat_box">
                     <h5>Nombre des personnes Traquées</h5>
-                    <h2>200</h2>
+                    <?php
+                        $output1 = VisiteurTraque();
+                        echo '<h2> '.$output1.'</h2>';
+                    ?>
                 </div>
                 <div class="stat_box">
                     <h5>FSDC</h5>
-                    <h2>200</h2>
+                    <?php
+                        $output1 = FSDCEnregistre();
+                        echo '<h2> '.$output1.'</h2>';
+                    ?>
                 </div>
                 <div class="stat_box">
                     <h5>FD</h5>
-                    <h2>200</h2>
+                    <?php
+                        $output1 = FDEnregistre();
+                        echo '<h2> '.$output1.'</h2>';
+                    ?>
                 </div>
                 <div class="stat_box">
                     <h5>Nombre total d'heures</h5>
-                    <h2>12435</h2>
+                    <?php
+                        $output1 = NombreHeure();
+                        echo '<h2> '.$output1.'</h2>';
+                    ?>
                 </div>
                 <div class="stat_box">
                     <h5>FPSE</h5>
-                    <h2>200</h2>
+                    <?php
+                        $output1 = FPSEEnregistre();
+                        echo '<h2> '.$output1.'</h2>';
+                    ?>
                 </div>
                 <div class="stat_box">
                     <h5>FMED</h5>
-                    <h2>200</h2>
+                    <?php
+                        $output1 = FMEDEnregistre();
+                        echo '<h2> '.$output1.'</h2>';
+                    ?>
                 </div>
                 <div class="stat_box">
                     <h5>FT</h5>
-                    <h2>200</h2>
+                    <?php
+                        $output1 = FTEnregistre();
+                        echo '<h2> '.$output1.'</h2>';
+                    ?>
                 </div>
             </div>
         </section>
