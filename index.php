@@ -1,3 +1,4 @@
+<br>
 <?php 
     include_once 'backend/header.php'
 ?>
@@ -32,7 +33,7 @@
         </div>
     </section>
     <div class="form" id="form">
-        <form action="#" method="POST" id="login-form">
+        <form action="backend/login.php" method="POST" id="login-form">
             <div class="time-circle">
                 <div data-colse-button class="close-btn">&times;</div>
             </div>
