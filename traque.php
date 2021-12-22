@@ -104,7 +104,7 @@
                 </div>
 
                 <div class="form_container">
-                    <form action="#" method="POST" class="form">
+                    <form action="b" method="POST" class="form">
                         <h3>Visiteur</h3>
                         <div class="form-content add">
                             <div class="form-left">

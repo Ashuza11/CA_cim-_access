@@ -40,7 +40,7 @@
                 <div class="form_container">
                     <form action="backend/studentRegister.inc.php" method="POST" class="form">
                         <h3>Etudiant</h3>
-                        <div class="form-content">
+                        <div class="form-content add">
                             <div class="form-left">
                                 <div class="input-group">
                                     <label for="name">Nom <span class="required">*</span> :</label>
