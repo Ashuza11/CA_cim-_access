@@ -59,7 +59,7 @@ function creatAdmin($conn, $name,  $email, $pwd){
     $stmt = mysqli_stmt_init($conn); # Initialise an new prepared statement
     # Check if it doesn't fail
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../register.php?error=usenametaken");
+        header("location: ../index.php?error=usenametaken");
         exit();
     }
     # Hashing the Password to make it unreaderble using built in fuction password_hash
@@ -121,16 +121,15 @@ function loginAdmin($conn, $name, $pwd) {
 # Register Student 
 
 # Check if student exixte 
-function studentExists($conn, $name, $matricule) {
-    $sql = "SELECT * FROM register_student WHERE  studentName = ? OR matricule = ?;";
-
+function studentExists($conn, $matricule) {
+    $sql = "SELECT * FROM register_student WHERE  matricule = ?";
     $stmt = mysqli_stmt_init($conn); # stmt statement to execuite
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../studentRegister.php?error=stmtfailed");
         exit();
     }
     # if everything is ok / Pass data for user
-    mysqli_stmt_bind_param($stmt, "ss", $name, $matricule);
+    mysqli_stmt_bind_param($stmt,"s",$matricule);
     mysqli_stmt_execute($stmt);
 
     # Grabe the data  from the data base
@@ -148,7 +147,7 @@ function studentExists($conn, $name, $matricule) {
     mysqli_stmt_close($stmt);
 }
 # Lok for wheter the user provide infos 
-function emptystudentInfo($name, $email, $telephone, $matricule,  $faculte, $promotion) {
+function emptystudentInfo($name, $email, $tel, $matricule,  $faculte, $promotion) {
     $result;
     if (empty($name) || empty($email)){
         $result = true;
@@ -161,7 +160,7 @@ function emptystudentInfo($name, $email, $telephone, $matricule,  $faculte, $pro
 }
 
 # Register the student 
-function  registerStudent($conn, $name, $email, $telephone, $matricule, $faculte, $promotion) {
+function  registerStudent($conn, $name, $email, $tel, $matricule, $faculte, $promotion) {
     $sql = "INSERT INTO register_student (studentName,studentEmail,telephone,matricule,faculty,promotion) VALUES (?, ?, ?, ?, ?, ?);";
 
     $stmt = mysqli_stmt_init($conn); # Initialise an new prepared statement
@@ -169,7 +168,7 @@ function  registerStudent($conn, $name, $email, $telephone, $matricule, $faculte
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../studentRegister.php?error=connexionFailed");
     }
-    mysqli_stmt_bind_param($stmt, "ssssss", $name, $email, $telephone, $matricule, $faculte, $promotion);
+    mysqli_stmt_bind_param($stmt, "ssssss", $name, $email, $tel, $matricule, $faculte, $promotion);
     mysqli_stmt_execute($stmt);
     # Grabe thr data 
 
@@ -180,34 +179,12 @@ function  registerStudent($conn, $name, $email, $telephone, $matricule, $faculte
     exit();
 }
 
-# Traquet the presence of the person 
-function traquetPresence($conn, $matricule, $dateTime, $time, $motif) {
-    $studentExists = studentExists($conn, $matricule, $matricule);
-    $sql = "INSERT INTO traque (matricule, dateandTime, duration, motif) VALUES (?, ?, ?, ?);"; 
-    if ($studentExists === false) {
-        header("location: ../traque.php?error=EtudiantIntrouve");
-        exit();
-    }
-    $stmt = mysqli_stmt_init($conn); # Initialise an new prepared statement
-    # Check if it doesn't fail
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../register.php?error=connexionFailed");
-    }
-    mysqli_stmt_bind_param($stmt, "ssss", $matricule, $dateTime, $time, $motif);
-    mysqli_stmt_execute($stmt);
-    # Grabe thr data 
-    mysqli_stmt_close($stmt);
-    header("location: ../admin.php");
-    exit();
-}
-
-
 
 # Register visiteur 
 
 # Check if guest exixte 
-function visiteurExists($conn, $name, $telephone) {
-    $sql = "SELECT * FROM register_guest WHERE  guestName = ? OR telephone = ?;";
+function visiteurExists($conn, $email, $tel) {
+    $sql = "SELECT * FROM register_guest WHERE telephone = ?;";
 
     $stmt = mysqli_stmt_init($conn); # stmt statement to execuite
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -215,7 +192,7 @@ function visiteurExists($conn, $name, $telephone) {
         exit();
     }
     # if everything is ok / Pass data for user
-    mysqli_stmt_bind_param($stmt, "ss", $name, $telephone);
+    mysqli_stmt_bind_param($stmt, "ss", $email, $tel);
     mysqli_stmt_execute($stmt);
 
     # Grabe the data  from the data base
@@ -233,9 +210,9 @@ function visiteurExists($conn, $name, $telephone) {
     mysqli_stmt_close($stmt);
 }
 # Lok for wheter the user provide infos 
-function emptyvisiteurInfo($name, $email, $telephone, $adresse) {
+function emptyvisiteurInfo($name, $email, $tel, $adresse) {
     $result;
-    if (empty($name) || empty($telephone)){
+    if (empty($name) || empty($tel)){
         $result = true;
     }
     else {
@@ -246,7 +223,7 @@ function emptyvisiteurInfo($name, $email, $telephone, $adresse) {
 }
 
 # Register the guest
-function  registervisiteur($conn, $name, $email, $telephone, $adresse) {
+function  registervisiteur($conn, $name, $email, $tel, $adresse) {
     $sql = "INSERT INTO register_guest (guestName,guestEmail,telephone,adresse) VALUES (?, ?, ?, ?);";
 
     $stmt = mysqli_stmt_init($conn); # Initialise an new prepared statement
@@ -254,7 +231,7 @@ function  registervisiteur($conn, $name, $email, $telephone, $adresse) {
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../studentRegister.php?error=connexionFailed");
     }
-    mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $telephone, $adresse);
+    mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $tel, $adresse);
     mysqli_stmt_execute($stmt);
     # Grabe thr data 
 
