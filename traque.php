@@ -38,7 +38,7 @@
             <h1 class="title">Traquer une personne</h1>
             <div class="container">
                 <div class="form_container">
-                    <form action="#" method="POST" class="form">
+                    <form action="backend/traquerStudent.php" method="POST" class="form">
                         <h3>Etudiant</h3>
                         <div class="form-content  add">
                             <div class="form-left">
@@ -48,22 +48,22 @@
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Motif <span class="required">*</span> :</label>
-                                    <select name="" class="inputfield select-style">
-                                        <option value="#">Sélectionner une option</option>
+                                    <select name="motif" class="inputfield select-style">
+                                        <option value="">Sélectionner une option</option>
                                         <option value="Recherche">Recherche</option>
                                         <option value="Formation"> Formation</option>
                                         <option value="Cours">Cours</option>
-                                        <option value="Cours">Conférence</option>
+                                        <option value="Conférence">Conférence</option>
                                         <option value="Impression">Impression et saisie</option>
-                                        <option value="5">courant</option>
-                                        <option value="6">Stage</option>
+                                        <option value="Courant">courant</option>
+                                        <option value="Stage">Stage</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-right">
                                 <div class="input-group">
                                     <label for="name">Durée <span class="required">*</span> :</label>
-                                    <input type="text" class="inputfield" name="" placeholder="Entrer la durée en munites"  required>
+                                    <input type="text" class="inputfield" name="time" placeholder="Entrer la durée en heure"  required>
                                 </div>
                             </div>
                         </div>
@@ -75,53 +75,49 @@
                         <h3>Etudiants récemment traqués</h3>
                         <table class="table_reault">
                             <tr>
+                                <th>Nom</th>
                                 <th>Matricule</th>
                                 <th>Durée</th>
-                                <th>Promotion</th>
+                                <th>motif</th>
                             </tr>
-                            <tr>
-                                <td>15846</td>
-                                <td>60</td>
-                                <td>Motif</td>
-                            </tr>
-                            <tr>
-                                <td>15446</td>
-                                <td>30</td>
-                                <td>Motif</td>
-                            </tr>
-                            <tr>
-                                <td>15446</td>
-                                <td>30</td>
-                                <td>Motif</td>
-                            </tr>
-                            <tr>
-                                <td>15446</td>
-                                <td>30</td>
-                                <td>Motif</td>
-                            </tr>
+                        <?php
+                            include 'backend/AfficherTableau.php';
+                            if(mysqli_num_rows($query_run2)>0){
+                                foreach($query_run2 as $items1){
+                        ?>
+                                    <tr>
+                                        <td><?php echo $items1 ['studentName']  ;?></td>
+                                        <td><?php echo $items1 ['matricule']  ;?></td>
+                                        <td><?php echo $items1 ['duration']  ;?></td>
+                                        <td><?php echo $items1 ['motif']  ;?></td>
+                                    </tr>
+                        <?php
+                                }
+                             }
+                        ?>
                         </table>
                     </div>
                 </div>
 
                 <div class="form_container">
-                    <form action="b" method="POST" class="form">
+                    <form action="backend/traquerVisiteur.php" method="POST" class="form">
                         <h3>Visiteur</h3>
                         <div class="form-content add">
                             <div class="form-left">
                                 <div class="input-group">
                                     <label for="name">Téléphone <span class="required">*</span> :</label>
-                                    <input type="tel" class="inputfield" placeholder="Entrer le numero de téléphone" name="" required>
+                                    <input type="tel" class="inputfield" placeholder="Entrer le numero de téléphone" name="telvisiteur" required>
                                 </div>
                             </div>
                             <div class="form-right">
                                 <div class="input-group">
                                     <label for="name">Durée <span class="required">*</span> :</label>
-                                    <input type="text" class="inputfield" name="" placeholder="Entrer la durée en munites"  required>
+                                    <input type="text" class="inputfield" name="durationvisiteur" placeholder="Entrer la durée en heure"  required>
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Motif <span class="required">*</span> :</label>
-                                    <select name="" class="inputfield select-style">
-                                        <option value="#">Sélectionner une option</option>
+                                    <select name="motifvisiteur" class="inputfield select-style">
+                                        <option value="">Sélectionner une option</option>
                                         <option value="Recherche">Recherche</option>
                                         <option value="Formation"> Formation</option>
                                         <option value="Cours">Entretien</option>
@@ -139,30 +135,25 @@
                         <h3>Visiteurs récemment traqués</h3>
                         <table class="table_reault">
                             <tr>
+                                <th>Nom</th>
                                 <th>Téléphone</th>
                                 <th>Durée</th>
                                 <th>Motif</th>
                             </tr>
-                            <tr>
-                                <td>0970475609</td>
-                                <td>50</td>
-                                <td>Entretien</td>
-                            </tr>
-                            <tr>
-                                <td>0978346575</td>
-                                <td>50</td>
-                                <td>Conférence</td>
-                            </tr>
-                            <tr>
-                                <td>0978346575</td>
-                                <td>60</td>
-                                <td>Conférence</td>
-                            </tr>
-                            <tr>
-                                <td>0978346575</td>
-                                <td>50</td>
-                                <td>Conférence</td>
-                            </tr>
+                            <?php
+                            if(mysqli_num_rows($query_run3)>0){
+                                foreach($query_run3 as $items1){
+                        ?>
+                                    <tr>
+                                        <td><?php echo $items1 ['guestName']  ;?></td>
+                                        <td><?php echo $items1 ['telephone']  ;?></td>
+                                        <td><?php echo $items1 ['duration']  ;?></td>
+                                        <td><?php echo $items1 ['motif']  ;?></td>
+                                    </tr>
+                        <?php
+                                }
+                             }
+                        ?>
                         </table>
                     </div>
                 </div>

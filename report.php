@@ -1,4 +1,25 @@
 <!DOCTYPE html>
+<?php
+    include_once 'backend/db.php';
+    $token = null;
+    $query= null;
+  if(isset($_GET['search'])){
+    $search = $_GET['search'];
+    $table = $_GET['table'];
+    $table =  $_GET['table'] == 'etudiant' ? 'register_student' : 'register_guest';
+    $search = str_replace(" ","",$search);
+
+    $query = "SELECT * FROM ". $table . " WHERE CONCAT ";
+    if($table == 'register_student'){
+        $field = " (studentName,studentEmail,matricule,telephone,faculty,promotion) ";
+        $token = 1;
+    }else{
+        $field = " (guestName,guestEmail,telephone,Adresse) ";
+        $token = 2;
+    }
+    $query = $query . $field . " LIKE '%$search%' ";
+   }
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,7 +59,8 @@
         <section class="center_box">
             <h1 class="title">Rapport</h1>
             <div class="contentContainer">
-                <div class="content_header">
+                <div class="content_header" >
+                <form method = 'GET' class="content_header">
                     <div class="search_bar">
                         <input type="text" class="search_txt" name="search" placeholder="Récherche">
                         <button type="submit" class="search_box"><i><img src="img/icon/search.svg" class="search" alt="icon"></i></button>
@@ -46,13 +68,14 @@
                     <div class="headerBotton">
                         <div class="btn1">
                             <img src="img/icon/filter.svg" alt="icon">
-                            <select name="">
+                            <select name='table'>
                                 <option value="#">Trier le recherche</option>
-                                <option value="student">Etudiant</option>
-                                <option value="visitor">Visiteur</option>
+                                <option value="etudiant">Etudiant</option>
+                                <option value="visiteur">Visiteur</option>
                             </select>
-                        </div>
-                        <button name="actualise" class="btn1" type="#">Actualiser</button>
+                    </div>
+                </form>
+                        <button name="actualise" class="btn1" type="report.php">Actualiser</button>
                         <div class="btn1">
                             <img src="img/icon/export.svg" class="icon" alt="icon">
                             <button name="export" type="#" >Exporter le fichier</button>
@@ -64,95 +87,81 @@
                         <h3>Etudiants</h3>
                         <table class="table_data">
                             <tr>
-                                <th>Nom</th>
-                                <th>Matricule</th>
-                                <th>Faculté</th>
-                                <th>Promotion</th>
-                                <th>Date</th>
-                                <th>Durée</th>
-                                <th>Motif</th>
+                            <th>N°</th>
+                        <th>Nom</th>
+                        <th>telephone</th>
+                        <th>Matricule</th>
+                        <th>Faculté</th>
+                        <th>Promotion</th>
                             </tr>
-                            <tr>
-                                <td>Alse</td>
-                                <td>124535</td>
-                                <td>FSTA</td>
-                                <td>G2</td>
-                                <td>2021-12-14 13:28:13</td>
-                                <td>60</td>
-                                <td>Formation</td>
-                            </tr>
-                            <tr>
-                                <td>Ben</td>
-                                <td>124535</td>
-                                <td>FSTA</td>
-                                <td>G2</td>
-                                <td>2021-12-14 13:28:13</td>
-                                <td>45</td>
-                                <td>Cours</td>
-                            </tr>
-                            <tr>
-                                <td>Jomo</td>
-                                <td>124535</td>
-                                <td>FSTA</td>
-                                <td>G2</td>
-                                <td>2021-12-14 13:28:13</td>
-                                <td>30</td>
-                                <td>Cours</td>
-                            </tr>
-                            <tr>
-                                <td>Crispin</td>
-                                <td>124535</td>
-                                <td>FSTA</td>
-                                <td>G2</td>
-                                <td>2021-12-14 13:28:13</td>
-                                <td>90</td>
-                                <td>Cours</td>
-                            </tr>
+                            <?php
+                                    
+                                    if($token != 1){
+                                        $query2 = "SELECT * FROM `register_student` ORDER BY studentId ";
+                                        $query_run2= mysqli_query( $conn,$query2);
+                                    }elseif($token == 1) {
+                                        $query_run2= mysqli_query( $conn, $query);
+                                    }  
+
+
+                                if(mysqli_num_rows($query_run2)>0){
+                                    $id=0;
+                                    foreach($query_run2 as $items1){
+                                        $id++;
+                            ?>
+                                        <tr>
+                                            
+                                    <td> <?php echo  $id ;?> </td>
+                                    <td> <?php echo $items1 ['studentName']  ;?> </td>
+                                    <td> <?php echo $items1 ['telephone'] ; ?> </td>
+                                    <td> <?php echo $items1 ['matricule'] ;?> </td>
+                                    <td> <?php echo $items1 ['faculty']  ;?> </td>
+                                    <td> <?php echo $items1 ['promotion']  ;?> </td>
+                                </tr>
+
+                                <?php
+                                    }
+                                }
+                                ?>
+                                                            
                         </table>
                     </div>
                     <div class="table">
                         <h3>Visiteurs</h3>
                         <table class="table_data">
                             <tr>
+                                <th>N°</th>
                                 <th>Nom</th>
-                                <th>Télephone</th>
-                                <th>Date</th>
-                                <th>Durée</th>
-                                <th>Email</th>
-                                <th>Motif</th>
+                                <th>email</th>
+                                <th>telephone</th>
+                                <th>adresse</th>
                             </tr>
-                            <tr>
-                                <td>Jems</td>
-                                <td>+243970353087</td>
-                                <td>2021-12-14 13:28:13</td>
-                                <td>60</td>
-                                <td>jems@gmail.com</td>
-                                <td>Formation</td>
-                            </tr>
-                            <tr>
-                                <td>Jems</td>
-                                <td>+243970353087</td>
-                                <td>2021-12-14 13:28:13</td>
-                                <td>60</td>
-                                <td>jems@gmail.com</td>
-                                <td>Formation</td>
-                            </tr>
-                            <tr>
-                                <td>Jems</td>
-                                <td>+243970353087</td>
-                                <td>2021-12-14 13:28:13</td>
-                                <td>60</td>
-                                <td>jems@gmail.com</td>
-                                <td>Formation</td>
-                            </tr>
-                            <tr>
-                                <td>Jems</td>
-                                <td>+243970353087</td>
-                                <td>2021-12-14 13:28:13</td>
-                                <td>60</td>
-                                <td>jems@gmail.com</td>
-                                <td>Formation</td>
-                            </tr>
+                            <?php 
+
+                                        if($token != 2){
+                                            $query1 = "SELECT * FROM `register_guest` ORDER BY guestId ";
+                                            $query_run1= mysqli_query( $conn, $query1);
+                                        }elseif($token == 2) {
+                                            $query_run1= mysqli_query( $conn, $query);
+                                        } 
+                                    if(mysqli_num_rows($query_run1)>0){
+                                        $id=0;
+                                        foreach($query_run1 as $items1){
+                                            $id++;
+                                    ?>
+                                            <tr>
+                                        <td> <?php echo  $id;?> </td>
+                                        <td> <?php echo $items1 ['guestName']  ;?> </td>
+                                        <td> <?php echo $items1 ['guestEmail']  ;?> </td>
+                                        <td> <?php echo $items1 ['telephone']  ;?> </td>
+                                        <td> <?php echo $items1 ['Adresse'] ; ?> </td>
+                                    </tr>
+
+                                    <?php
+                                        }
+                                    }
+
+                                    ?>
                         </table>
                         
                     </div>

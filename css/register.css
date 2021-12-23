@@ -81,6 +81,7 @@
     border-bottom: 1px solid black;
     cursor: pointer;
 }
+
 .menu ul li:hover a {
     padding-left: 30px;
 }
@@ -93,34 +94,36 @@
 }
 
 /* Drop down style for report */
-.subnav a {
-float: left;
-font-size: 16px;
-color: #CAEBFF;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
+.dropdown {
+    position: relative;
 }
-.subnav .subnavbtn {
-    cursor: pointer;
-    font-size: 16px;
+.dropbtn {
     border: none;
-    outline: none;
-    color: var(--menu_color);
-    padding: 14px 16px;
     background-color: #202027;
-    margin: 0;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 16px;
+    color: var(--menu_color);
+    padding-left: 20px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    transition: .4s;
+    text-align: left;
 }
-.subnav a:hover, .subnav:hover .subnavbtn {
-    background-color: rgba(102, 102, 102, 0.26);
-}
-.subnav-content {
-    display: none;
+.drowpdown-content {
     position: absolute;
     left: 0;
-    background-color: rgba(102, 102, 102, 0.26);
-    width: 100%;
-    z-index: 1;
+    top: calc(100% + .25rem);
+    background-color: #2f303a;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    width: 99%;
+    opacity: 0;
+}
+.drowpdown-content i {
+    display: flex;
 }
 /* Drap down wrapper */
 /* Menu End */

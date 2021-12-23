@@ -21,7 +21,7 @@
             <button type = 'submit'>Search</button>
 </form>
 <?php
-    include_once 'backend/db.php';
+    include_once 'db.php';
     $token = null;
     $query= null;
   if(isset($_GET['search'])){

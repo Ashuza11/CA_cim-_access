@@ -94,7 +94,6 @@ CREATE TABLE `traque_guest` (
   `Id` int(11) NOT NULL,
   `telephone` varchar(11) NOT NULL,
   `motif` varchar(128) NOT NULL,
-  `IdEtranger` int(11) NOT NULL,
   `duration` int(128) NOT NULL,
   `dateandTime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -103,9 +102,6 @@ CREATE TABLE `traque_guest` (
 -- Déchargement des données de la table `traque_guest`
 --
 
-INSERT INTO `traque_guest` (`Id`, `telephone`, `motif`, `IdEtranger`, `duration`, `dateandTime`) VALUES
-(1, '096', 'FORMATION', 2, 5, '2021-12-14 13:28:13'),
-(2, '096', 'RECHERCHE', 2, 14, '2021-12-14 13:32:34');
 
 -- --------------------------------------------------------
 
@@ -117,7 +113,6 @@ CREATE TABLE `traque_student` (
   `Id` int(11) NOT NULL,
   `matricule` varchar(128) NOT NULL,
   `motif` varchar(128) NOT NULL,
-  `IdEtudiant` int(11) NOT NULL,
   `duration` int(128) NOT NULL,
   `dateandTime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -125,9 +120,6 @@ CREATE TABLE `traque_student` (
 --
 -- Déchargement des données de la table `traque_student`
 --
-
-INSERT INTO `traque_student` (`Id`, `matricule`, `motif`, `IdEtudiant`, `duration`, `dateandTime`) VALUES
-(1, '16040', '1YIOO', 1, 9, '2021-12-14 13:12:42');
 
 --
 -- Index pour les tables déchargées
@@ -155,15 +147,15 @@ ALTER TABLE `register_student`
 -- Index pour la table `traque_guest`
 --
 ALTER TABLE `traque_guest`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `IdEtranger` (`IdEtranger`);
+  ADD PRIMARY KEY (`Id`);
+
 
 --
 -- Index pour la table `traque_student`
 --
 ALTER TABLE `traque_student`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `IdEtudiant` (`IdEtudiant`);
+  ADD PRIMARY KEY (`Id`);
+
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -207,13 +199,13 @@ ALTER TABLE `traque_student`
 -- Contraintes pour la table `traque_guest`
 --
 ALTER TABLE `traque_guest`
-  ADD CONSTRAINT `traque_guest_ibfk_1` FOREIGN KEY (`IdEtranger`) REFERENCES `register_guest` (`guestId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `traque_guest_ibfk_1` FOREIGN KEY (`telephone`) REFERENCES `register_guest` (`telephone`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `traque_student`
 --
 ALTER TABLE `traque_student`
-  ADD CONSTRAINT `traque_student_ibfk_1` FOREIGN KEY (`IdEtudiant`) REFERENCES `register_student` (`studentId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `traque_student_ibfk_1` FOREIGN KEY (`matricule`) REFERENCES `register_student` (`matricule`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
