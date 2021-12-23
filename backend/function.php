@@ -104,7 +104,7 @@ function loginAdmin($conn, $name, $pwd) {
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if ($checkPwd === false) {
-        header("location: ../index.php?error=MauvaisIpwd");
+        header("location: ../index.php?error=Mauvaispwd");
         exit();
     }
     else if ($checkPwd === true)

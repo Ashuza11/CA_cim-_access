@@ -37,6 +37,8 @@ CREATE TABLE `admin_table` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
+-- Creation du super Admin
+INSERT INTO `admin_table` (`AdminId`, `AdminNom`, `AdminEmail`, `AdminPwd`) VALUES (NULL, 'Jems', 'jems@gmail.com', 'jems123');
 
 --
 -- Structure de la table `register_guest`

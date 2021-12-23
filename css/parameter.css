@@ -91,38 +91,6 @@
     height: 36px;
     width: auto;
 }
-
-/* Drop down style for report */
-.subnav a {
-float: left;
-font-size: 16px;
-color: #CAEBFF;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-}
-.subnav .subnavbtn {
-    cursor: pointer;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: var(--menu_color);
-    padding: 14px 16px;
-    background-color: #202027;
-    margin: 0;
-}
-.subnav a:hover, .subnav:hover .subnavbtn {
-    background-color: rgba(102, 102, 102, 0.26);
-}
-.subnav-content {
-    display: none;
-    position: absolute;
-    left: 0;
-    background-color: rgba(102, 102, 102, 0.26);
-    width: 100%;
-    z-index: 1;
-}
-/* Drap down wrapper */
 /* Menu End */
 
 
@@ -153,6 +121,11 @@ text-decoration: none;
     padding: 0;
 }
 
+.form_container {
+    display: flex;
+    gap: 30px;
+}
+
 /* Forms and Tables */
 
 /* Rigister forms */
@@ -168,6 +141,7 @@ text-decoration: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 20px;
 }
 .form_container .form h3{
     font-weight: 900;
@@ -176,17 +150,13 @@ text-decoration: none;
     padding: 8px;
 }
 
-
 .form .form-content {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 50px;
 }
-.form .add {
-    padding-left: 50px;
-    padding-right: 50px;
-}
+
 
 .form .form-content .input-group {
     margin-bottom: 1rem;
