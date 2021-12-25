@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/dropdown.css">
     <link rel = "icon" href = "img/logo.png" type = "image/x-icon">
     <title>Cimé Access</title> 
 </head>
@@ -24,16 +25,11 @@
 
     <!-- Main contents -->
     <main class="main">
-        <div class="menu">
-            <header class="menu_title">Menu</header>
-            <ul>
-                <li><i><img src="img/icon/analytics.svg" alt="icon"></i><a href="admin.php">Aperçu</a></li>
-                <li><i><img src="img/icon/register.svg" alt="icon"></i><a href="studentRegister.php">Ajouter une personne</a></li>
-                <li class="active"><i><img src="img/icon/traque.svg" alt="icon"></i><a href="#">Traquer une personne</a></li>
-                <li><i><img src="img/icon/folder.svg" alt="icon"></i><a href="report.php">Rapport</a></li>
-                <li><i><img src="img/icon/settings.svg" alt="icon"></i><a href="parameter.php">Paramètre</a></li>
-            </ul>
-        </div>
+        <!-- Menu -->
+        <?php
+            include_once 'layout/menu.php';
+        ?>
+        <!-- Menu wrapper -->
         <section class="center_box">
             <h1 class="title">Traquer une personne</h1>
             <div class="container">
@@ -93,7 +89,7 @@
                                     </tr>
                         <?php
                                 }
-                             }
+                            }
                         ?>
                         </table>
                     </div>
@@ -152,7 +148,7 @@
                                     </tr>
                         <?php
                                 }
-                             }
+                            }
                         ?>
                         </table>
                     </div>
@@ -161,9 +157,10 @@
         </section>
     </main>
     <!-- Main contents Wrapper-->
-    <footer class="footer">
-        <p> Copyright &#xa9;2021, Cimé Access.ulpgl.net</p>
-    </footer>
-    <script defer src="js/table.js"></script>
+    <!-- Footer -->
+    <?php
+        include_once 'layout/footer.php';
+    ?>
+    <!-- Footer -->
 </body>
 </html>

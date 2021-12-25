@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/dropdown.css">
     <link rel = "icon" href = "img/logo.png" type = "image/x-icon">
     <title>Cimé Access</title> 
 </head>
@@ -27,9 +28,11 @@
 
     <!-- Main contents -->
     <main class="main">
+        <!-- Menu -->
         <?php
-            include_once 'backend/menu.php';
+            include_once 'layout/menu.php';
         ?>
+        <!-- Menu wrapper -->
         <section class="center_box">
             <h1 class="title">Aperçu</h1>
             <div class="box_container">
@@ -121,9 +124,10 @@
             </div>
         </section>
     </main>
-    <!-- Main contents Wrapper-->
-    <footer class="footer">
-        <p> Copyright &#xa9;2021, Cimé Access.ulpgl.net</p>
-    </footer>
+    <!-- Footer -->
+    <?php
+        include_once 'layout/footer.php';
+    ?>
+    <!-- Footer -->
 </body>
 </html>

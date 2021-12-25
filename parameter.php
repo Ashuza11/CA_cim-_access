@@ -24,16 +24,11 @@
 
     <!-- Main contents -->
     <main class="main">
-        <div class="menu">
-            <header class="menu_title">Menu</header>
-            <ul>
-                <li><i><img src="img/icon/analytics.svg" alt="icon"></i><a href="admin.php">Aperçu</a></li>
-                <li><i><img src="img/icon/register.svg" alt="icon"></i><a href="studentRegister.php">Ajouter une personne</a></li>
-                <li><i><img src="img/icon/traque.svg" alt="icon"></i><a href="traque.php">Traquer une personne</a></li>
-                <li><i><img src="img/icon/folder.svg" alt="icon"></i><a href="report.php">Rapport</a></li>
-                <li class="active"><i><img src="img/icon/settings.svg" alt="icon"></i><a href="#">Paramètre</a></li>
-            </ul>
-        </div>
+        <!-- Menu -->
+        <?php
+            include_once 'layout/menu.php';
+        ?>
+        <!-- Menu wrapper -->
         <section class="center_box">
             <h1 class="title">Paramètre</h1>
             <div class="container">
@@ -88,9 +83,10 @@
         </section>
     </main>
     <!-- Main contents Wrapper-->
-    <footer class="footer">
-        <p> Copyright &#xa9;2021, Cimé Access.ulpgl.net</p>
-    </footer>
-    <script defer src="js/table.js"></script>
+    <!-- Footer -->
+    <?php
+        include_once 'layout/footer.php';
+    ?>
+    <!-- Footer -->
 </body>
 </html>

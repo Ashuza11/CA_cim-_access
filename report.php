@@ -3,7 +3,7 @@
     include_once 'backend/db.php';
     $token = null;
     $query= null;
-  if(isset($_GET['search'])){
+    if(isset($_GET['search'])){
     $search = $_GET['search'];
     $table = $_GET['table'];
     $table =  $_GET['table'] == 'etudiant' ? 'register_student' : 'register_guest';
@@ -18,18 +18,18 @@
         $token = 2;
     }
     $query = $query . $field . " LIKE '%$search%' ";
-   }
+    }
 ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cimé Access</title> 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/report.css">
+    <link rel="stylesheet" href="css/dropdown.css">
     <link rel = "icon" href = "img/logo.png" type = "image/x-icon">
-    <link >
-    <title>Cimé Access</title> 
 </head>
 <body class="main-contents">
     <!-- Header Nav bar-->
@@ -46,16 +46,11 @@
 
     <!-- Main contents -->
     <main class="main">
-        <div class="menu">
-            <header class="menu_title">Menu</header>
-            <ul>
-                <li><i><img src="img/icon/analytics.svg" alt="icon"></i><a href="admin.php">Aperçu</a></li>
-                <li><i><img src="img/icon/register.svg" alt="icon"></i><a href="studentRegister.php">Ajouter une personne</a></li>
-                <li><i><img src="img/icon/traque.svg" alt="icon"></i><a href="traque.php">Traquer une personne</a></li>
-                <li class="active"><i><img src="img/icon/folder.svg" alt="icon"></i><a href="#">Rapport</a></li>
-                <li><i><img src="img/icon/settings.svg" alt="icon"></i><a href="parameter.php">Paramètre</a></li>
-            </ul>
-        </div>
+        <!-- Menu -->
+        <?php
+            include_once 'layout/menu.php';
+        ?>
+        <!-- Menu wrapper -->
         <section class="center_box">
             <h1 class="title">Rapport</h1>
             <div class="contentContainer">
@@ -169,10 +164,10 @@
             </div>
         </section>
     </main>
-    <!-- Main contents Wrapper-->
-    <footer class="footer">
-        <p> Copyright &#xa9;2021, Cimé Access.ulpgl.net</p>
-    </footer>
-    <script defer src="js/table.js"></script>
+    <!-- Footer -->
+    <?php
+        include_once 'layout/footer.php';
+    ?>
+    <!-- Footer -->
 </body>
 </html>

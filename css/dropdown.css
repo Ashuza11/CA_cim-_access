@@ -1,0 +1,53 @@
+/* Menu dropDown */
+
+/* Drop down style for report */
+.dropdown {
+    position: relative;
+}
+.dropdown button {
+    background-color: #202027;
+}
+
+.bntDropdown {
+    border: none;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 16px;
+    color: var(--menu_color);
+    padding-left: 20px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    transition: .4s;
+    text-align: left;
+    cursor: pointer;
+}
+.dropdown > .limk:focus, .link:hover {
+    color: var(--menu_color);
+}
+.drowpdown-content {
+    position: absolute;
+    left: 0;
+    top: calc(100% + .25rem);
+    background-color: #202027;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .6);
+    width: 98%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+.dropdown.active > .bntDropdown + .drowpdown-content {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.drowpdown-content i {
+    display: flex;
+}
+/* Drap down wrapper */
+
+/* Menu dropDown Wrapper */
