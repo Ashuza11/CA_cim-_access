@@ -53,7 +53,7 @@
                 <li><i><img src="img/icon/register.svg" alt="icon"></i><a href="studentRegister.php">Ajouter une personne</a></li>
                 <li><i><img src="img/icon/traque.svg" alt="icon"></i><a href="traque.php">Traquer une personne</a></li>
                 <li class="active"><i><img src="img/icon/folder.svg" alt="icon"></i><a href="#">Rapport</a></li>
-                <li><i><img src="img/icon/settings.svg" alt="icon"></i><a href="#">Paramètre</a></li>
+                <li><i><img src="img/icon/settings.svg" alt="icon"></i><a href="parameter.php">Paramètre</a></li>
             </ul>
         </div>
         <section class="center_box">
@@ -62,9 +62,8 @@
                 <div class="content_header" >
                 <form method = 'GET' class="content_header">
                     <div class="search_bar">
-                        <input type="text" class="search_txt" name="search" placeholder="Faire une recherche">
-                        <button class="search_box" type = 'submit'> <i><img src="img/icon/search.svg" class="search" alt="icon"></i></button>
-
+                        <input type="text" class="search_txt" name="search" placeholder="Récherche">
+                        <button type="submit" class="search_box"><i><img src="img/icon/search.svg" class="search" alt="icon"></i></button>
                     </div>
                     <div class="headerBotton">
                         <div class="btn1">

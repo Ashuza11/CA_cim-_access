@@ -1,8 +1,6 @@
-<br>
 <?php 
     include_once 'backend/header.php'
 ?>
-
 <body class="container full-height-grow">
     <header class="main-header">
         <a href="/" class="logo">
@@ -21,7 +19,7 @@
                 else if ($_GET["error"] == "Mauvaisidentifiant") {
                     echo "<p style='color: red; padding: 10px 15px; text-align: center; font-size: 18px;'>Nom incorrect !</p>";
                 }
-                else if ($_GET["error"] == "MauvaisIpwd") {
+                else if ($_GET["error"] == "Mauvaispwd") {
                     echo "<p style='color: red; padding: 10px 15px; text-align: center; font-size: 18px;'>Mot de pass incorrect !</p>";
                 }
             }

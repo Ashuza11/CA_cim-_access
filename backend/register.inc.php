@@ -1,8 +1,7 @@
 <?php
 
     if (isset($_POST["submit"])) {
-        $name = $_POST["nom"];
-        $email = $_POST["email"];
+        $name = $_POST["name"];
         $pwd = $_POST["pwd"];
         $pwdRepeat = $_POST["cpwd"];
 
@@ -33,15 +32,15 @@
             exit();
         }
         # Verifier si le nom existe dans la base des données
-        if (AdminExists($conn,  $name, $email) !== false) {
+        if (AdminExists($conn,  $name) !== false) {
             header("location: ../inscriptionAdmin.php?error=ussenametaken");
             exit();
         }
 
         # Tous est bon Enregistre l'utilisateur en utilisant la fonction Createuser
-        creatAdmin($conn, $name,  $email, $pwd);
+        creatAdmin($conn, $name, $pwd);
         }
         else {
-            header("location: ../register.php");
+            header("location: ../parameter.php");
             exit();
     }

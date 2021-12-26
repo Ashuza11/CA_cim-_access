@@ -26,8 +26,8 @@ function PwdMatch($pwd, $pwdRepeat) {
 }
 # Cheker si l'utilisateur existe déjà dans la base. 
 # Ussed for the sign up for and for the login form 
-function AdminExists($conn,  $name, $email) {
-    $sql = "SELECT * FROM admin_table WHERE adminNom = ? OR adminEmail = ?;"; # Close of sql statmnt and php statmnt
+function AdminExists($conn,  $name) {
+    $sql = "SELECT * FROM admin_table WHERE adminNom = ?;"; # Close of sql statmnt and php statmnt
     # unitialise a new statemment/ prevenir l'utilisateur de questionner la base via le fomulaire 
     $stmt = mysqli_stmt_init($conn); # stmt statement to execuite
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -35,7 +35,7 @@ function AdminExists($conn,  $name, $email) {
         exit();
     }
     # if everything is ok / Pass data for user
-    mysqli_stmt_bind_param($stmt, "ss", $name, $email);
+    mysqli_stmt_bind_param($stmt, "s", $name);
     mysqli_stmt_execute($stmt);
 
     # Grabe the data  from the data base
@@ -54,8 +54,8 @@ function AdminExists($conn,  $name, $email) {
 }
 
 
-function creatAdmin($conn, $name,  $email, $pwd){
-    $sql = "INSERT INTO admin_table (adminNom, adminEmail, adminPwd) VALUES (?, ?, ?);"; # Close 
+function creatAdmin($conn, $name,  $pwd){
+    $sql = "INSERT INTO admin_table (adminNom,  adminPwd) VALUES ( ?, ?);"; # Close 
     $stmt = mysqli_stmt_init($conn); # Initialise an new prepared statement
     # Check if it doesn't fail
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -65,7 +65,7 @@ function creatAdmin($conn, $name,  $email, $pwd){
     # Hashing the Password to make it unreaderble using built in fuction password_hash
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
     # if everything is ok 
-    mysqli_stmt_bind_param($stmt, "sss", $name, $email, $hashedPwd);
+    mysqli_stmt_bind_param($stmt, "ss", $name,  $hashedPwd);
     mysqli_stmt_execute($stmt);
     # Grabe thr data 
     $resultData = mysqli_stmt_get_result($stmt);
@@ -104,7 +104,7 @@ function loginAdmin($conn, $name, $pwd) {
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if ($checkPwd === false) {
-        header("location: ../index.php?error=MauvaisIpwd");
+        header("location: ../index.php?error=Mauvaispwd");
         exit();
     }
     else if ($checkPwd === true)

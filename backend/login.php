@@ -1,7 +1,6 @@
 <?php
 
 if ( isset( $_POST[ 'submit' ] ) ) {
-
     $name = $_POST[ 'name' ];
     $pwd = $_POST[ 'pwd' ];
 
@@ -15,6 +14,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
         exit();
     }
     loginAdmin( $conn, $name, $pwd );
+    
 } else {
     header( 'location: ../admin.php' );
 }

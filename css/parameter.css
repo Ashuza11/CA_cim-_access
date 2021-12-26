@@ -81,7 +81,6 @@
     border-bottom: 1px solid black;
     cursor: pointer;
 }
-
 .menu ul li:hover a {
     padding-left: 30px;
 }
@@ -92,40 +91,6 @@
     height: 36px;
     width: auto;
 }
-
-/* Drop down style for report */
-.dropdown {
-    position: relative;
-}
-.dropbtn {
-    border: none;
-    background-color: #202027;
-    height: 100%;
-    width: 100%;
-    line-height: 65px;
-    font-size: 16px;
-    color: var(--menu_color);
-    padding-left: 20px;
-    padding-right: 10px;
-    box-sizing: border-box;
-    transition: .4s;
-    text-align: left;
-}
-.drowpdown-content {
-    position: absolute;
-    left: 0;
-    top: calc(100% + .25rem);
-    background-color: #2f303a;
-    padding: .75rem;
-    border-radius: .25rem;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
-    width: 99%;
-    opacity: 0;
-}
-.drowpdown-content i {
-    display: flex;
-}
-/* Drap down wrapper */
 /* Menu End */
 
 
@@ -156,6 +121,11 @@
     padding: 0;
 }
 
+.form_container {
+    display: flex;
+    gap: 30px;
+}
+
 /* Forms and Tables */
 
 /* Rigister forms */
@@ -171,6 +141,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 20px;
 }
 .form_container .form h3{
     font-weight: 900;
@@ -179,17 +150,13 @@
     padding: 8px;
 }
 
-
 .form .form-content {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 50px;
 }
-.form .add {
-    padding-left: 50px;
-    padding-right: 50px;
-}
+
 
 .form .form-content .input-group {
     margin-bottom: 1rem;
