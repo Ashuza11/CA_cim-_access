@@ -52,24 +52,25 @@
         ?>
         <!-- Menu wrapper -->
         <section class="center_box">
-            <h1 class="title">Rapport</h1>
+            <h1 class="title">Rapport Enregistrements</h1>
             <div class="contentContainer">
-                <div class="content_header" >
-                <form method = 'GET' class="content_header">
-                    <div class="search_bar">
-                        <input type="text" class="search_txt" name="search" placeholder="Récherche">
-                        <button type="submit" class="search_box"><i><img src="img/icon/search.svg" class="search" alt="icon"></i></button>
-                    </div>
-                    <div class="headerBotton">
-                        <div class="btn1">
-                            <img src="img/icon/filter.svg" alt="icon">
-                            <select name='table'>
-                                <option value="#">Trier le recherche</option>
-                                <option value="etudiant">Etudiant</option>
-                                <option value="visiteur">Visiteur</option>
-                            </select>
-                    </div>
-                </form>
+                <div class="content_header">
+                    <form method = 'GET'>
+                        <div class="search_bar">
+                            <input type="text" class="search_txt" name="search" placeholder="Récherche">
+                            <button type="submit" class="search_box"><i><img src="img/icon/search.svg" class="search" alt="icon"></i></button>
+                        </div>
+                        <div class="headerBotton">
+                            <div class="btn1">
+                                <img src="img/icon/filter.svg" alt="icon">
+                                <select name='table'>
+                                    <option value="#">Trier le recherche</option>
+                                    <option value="etudiant">Etudiant</option>
+                                    <option value="visiteur">Visiteur</option>
+                                </select>
+                        </div>
+                    </form>
+                    <div class="right_header_btn">
                         <button name="actualise" class="btn1" type="report.php">Actualiser</button>
                         <div class="btn1">
                             <img src="img/icon/export.svg" class="icon" alt="icon">
@@ -79,7 +80,7 @@
                 </div>
                 <div class="main_content">
                     <div class="table">
-                        <h3>Etudiants</h3>
+                        <h3 class="table_title">Etudiants</h3>
                         <table class="table_data">
                             <tr>
                             <th>N°</th>
@@ -122,7 +123,7 @@
                         </table>
                     </div>
                     <div class="table">
-                        <h3>Visiteurs</h3>
+                        <h3 class="table_title">Visiteurs</h3>
                         <table class="table_data">
                             <tr>
                                 <th>N°</th>

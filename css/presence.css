@@ -163,6 +163,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
     margin-top: 30px;
     font-size: 1.2rem;
     margin-bottom: .6rem;
+    background-color: #f7f7f7;
 }
 /* Radio Buttons  */
 .lable {

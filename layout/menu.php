@@ -8,8 +8,8 @@
             <i><img src="img/icon/folder.svg"alt="icon"></i>
             <button class="bntDropdown" data-dropdown-button>Rapport</button>
             <div class="drowpdown-content">
-                <i><a href="report.php" class="link">Enregistrements</a></i>
-                <i><a href="#" class="link">Traques</a></i>
+                <i><a href="reportEnregistrement.php" class="link">Enregistrements</a></i>
+                <i><a href="raportTraque.php" class="link">Traques</a></i>
             </div>
         </li>
         <li><i><img src="img/icon/settings.svg" alt="icon"></i><a href="parameter.php">Paramètre</a></li>

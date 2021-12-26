@@ -89,7 +89,7 @@
                             </div>
                         </div>
                         <div class="btn-group">
-                            <button name="submit" type="submit" id="btn" data-table-target=".table_result">Enregistrer</button>
+                            <button name="submit" type="submit" id="btn">Enregistrer</button>
                         </div>
                     </form>
                     <div class="table_result hide" id="showStudentTable">

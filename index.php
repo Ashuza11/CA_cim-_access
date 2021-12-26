@@ -12,7 +12,7 @@
     </nav>
     </header>
     <?php
-            if (isset($_GET["error"])){`
+            if (isset($_GET["error"])){
                 if ($_GET["error"] == "emptyinput"){
                     echo '<p style="color: red; padding: 10px 15px; text-align: center; font-size: 18px;" >Viellez remplir tous les champs !</p>';
                 }
