@@ -1,3 +1,57 @@
+/* Menu */
+.main-contents .main .menu {
+    flex-shrink: 0;
+    background-color: #202027;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+/* Menu title */
+.menu .menu_title {
+    font-size: 22px;
+    color: var(--menu_color);
+    text-align: center;
+    line-height: 70px;
+    background: #1761a783;
+}
+.menu ul a {
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 16px;
+    color: var(--menu_color);
+    padding-left: 20px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    transition: .4s;
+}
+.menu ul li {
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 2555, 255, .1);
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+.menu ul li:hover a {
+    padding-left: 30px;
+    
+}
+.menu ul .active {
+    background-color: #2f303a;
+}
+.menu ul li:hover, .link:focus , .link:hover, .bntDropdown:hover{
+    background-color: #2f303a;
+}
+.menu ul li i img {
+    height: 36px;
+    width: auto;
+}
+
+/* Menu wrapper */
+
 /* Menu dropDown */
 
 /* Drop down style for report */

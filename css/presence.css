@@ -237,17 +237,6 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
     justify-content: center;
     align-items: center;
 }
-@media(max-width: 600px) and (max-width: 900px){
-    #register-form {
-        position: fixed;
-        top: 60%;
-        left: 50%;
-        transform: translate(-50%, -50%); 
-        max-width: 100%;
-    }
-    #register-form .form-content .input-group {
-        padding: 10px;
-    }
-}
+
 
 
