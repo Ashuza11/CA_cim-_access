@@ -43,15 +43,15 @@
                         <div class="form-content">
                             <div class="form-left">
                                 <div class="input-group">
-                                    <label for="name">Mot de pass <span class="required">*</span> :</label>
+                                    <label for="name">Ancien Mot de pass <span class="required">*</span> :</label>
                                     <input type="password"  placeholder="Entrer l'ansien mot de pass" class="inputfield" autofocus name="name" required>
                                 </div>
                                 <div class="input-group">
-                                    <label for="name">Mot de pass encore <span class="required">*</span> :</label>
+                                    <label for="name">Nouveau Mot de pass  <span class="required">*</span> :</label>
                                     <input type="password" class="inputfield" name="matricule" placeholder="Entrer le Nouveau mot de pass" required>
                                 </div>
                                 <div class="input-group">
-                                    <label for="name">Mot de pass encore <span class="required">*</span> :</label>
+                                    <label for="name">Confirmer Mot de pass <span class="required">*</span> :</label>
                                     <input type="password" class="inputfield" placeholder="Confirmer le mot de pass" name="" required>
                                 </div>
                             </div>

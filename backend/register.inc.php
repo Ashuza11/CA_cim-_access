@@ -28,12 +28,12 @@
         # Fonctione  
         if (PwdMatch($pwd, $pwdRepeat) !== false) {
             $errors[$name] = 
-            header("location: ../inscriptionAdmin.php?error=passworddontmatch");
+            header("location: ../parameter.php?error=passworddontmatch");
             exit();
         }
         # Verifier si le nom existe dans la base des données
         if (AdminExists($conn,  $name) !== false) {
-            header("location: ../inscriptionAdmin.php?error=ussenametaken");
+            header("location: ../parameter.php?error=ussenametaken");
             exit();
         }
 

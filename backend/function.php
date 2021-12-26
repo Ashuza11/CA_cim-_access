@@ -31,7 +31,7 @@ function AdminExists($conn,  $name) {
     # unitialise a new statemment/ prevenir l'utilisateur de questionner la base via le fomulaire 
     $stmt = mysqli_stmt_init($conn); # stmt statement to execuite
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../register.php?error=stmtfailed");
+        header("location: ../parameter.php?error=stmtfailed");
         exit();
     }
     # if everything is ok / Pass data for user
@@ -93,7 +93,7 @@ function emptyInputLogin($name, $pwd) {
 }
 
 function loginAdmin($conn, $name, $pwd) {
-    $adminExixts = AdminExists($conn,  $name, $name);
+    $adminExixts = AdminExists($conn,  $name);
     if ($adminExixts ===  false){
         header("location: ../index.php?error=Mauvaisidentifiant");
         exit();

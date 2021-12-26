@@ -35,7 +35,7 @@
                     <button class="dropbtn">Rapport</button>
                     <div class="drowpdown-content">
                         <i><a href="report.php">Enregistrements</a></i>
-                        <i><a href="#">Traques</a></i>
+                        <i><a href="reportTraque.php">Traques</a></i>
                     </div>
                 </li>
                 <li><i><img src="img/icon/settings.svg" alt="icon"></i><a href="parameter.php">Paramètre</a></li>
