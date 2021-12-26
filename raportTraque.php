@@ -11,7 +11,7 @@
 
     $query = "SELECT * FROM ". $table . " WHERE CONCAT ";
     if($table == 'register_student'){
-        $field = " (studentName,studentEmail,matricule,telephone,faculty,promotion) ";
+        $field = " (studentName,matricule,telephone,faculty,promotion) ";
         $token = 1;
     }else{
         $field = " (guestName,guestEmail,telephone,Adresse) ";
