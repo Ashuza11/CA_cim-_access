@@ -11,7 +11,7 @@
 
     $query = "SELECT * FROM ". $table . " WHERE CONCAT ";
     if($table == 'register_student'){
-        $field = " (studentName,studentEmail,matricule,telephone,faculty,promotion) ";
+        $field = " (studentName,matricule,telephone,faculty,promotion) ";
         $token = 1;
     }else{
         $field = " (guestName,guestEmail,telephone,Adresse) ";
@@ -57,7 +57,7 @@
             </ul>
         </div>
         <section class="center_box">
-            <h1 class="title">Rapport</h1>
+            <h1 class="title">Rapport des Enregistrements </h1>
             <div class="contentContainer">
                 <div class="content_header" >
                 <form method = 'GET' class="content_header">
