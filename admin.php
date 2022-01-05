@@ -1,5 +1,9 @@
+<!-- ff -->
 <?php
     include 'backend/adminFunction.php';
+    session_start();
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +25,10 @@
             <div class="logo-text"><i class="a">C</i>imé <i class="b">A</i>ccess</div>
         </a>
         <nav class="main-nav">
+                    <?php
+
+                        echo '<h2> '.$_SESSION["adminName"].'</h2>';
+                    ?>
             <button class="deconect menu"><a href="index.php">Déconnexion</a></button>
         </nav>
     </header>
@@ -35,6 +43,7 @@
         <!-- Menu wrapper -->
         <section class="center_box">
             <h1 class="title">Aperçu</h1>
+            
             <div class="box_container">
                 <div class="stat_box">
                     <h5>Nombre d'étudiant enregistrés</h5>

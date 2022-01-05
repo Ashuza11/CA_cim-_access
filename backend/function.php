@@ -1,7 +1,7 @@
 <?php
 # User Name checker
 function invalidAdminName($name) {
-    $result;
+    $result = false;
     # User of the search algorithm
     if (!preg_match("/^[a-zA-Z]*$/", $name)){
         $result = true;
@@ -14,7 +14,7 @@ function invalidAdminName($name) {
 }
 # Passwoed checker 
 function PwdMatch($pwd, $pwdRepeat) {
-    $result;
+    $result = false;
     if ($pwd !== $pwdRepeat){
         $result = true;
     }
@@ -26,8 +26,8 @@ function PwdMatch($pwd, $pwdRepeat) {
 }
 # Cheker si l'utilisateur existe déjà dans la base. 
 # Ussed for the sign up for and for the login form 
-function AdminExists($conn,  $name) {
-    $sql = "SELECT * FROM admin_table WHERE adminNom = ?;"; # Close of sql statmnt and php statmnt
+function AdminExists($conn,  $name, $email) {
+    $sql = "SELECT * FROM admin_table WHERE adminName = ? OR adminEmail = ?;"; # Close of sql statmnt and php statmnt
     # unitialise a new statemment/ prevenir l'utilisateur de questionner la base via le fomulaire 
     $stmt = mysqli_stmt_init($conn); # stmt statement to execuite
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -35,7 +35,7 @@ function AdminExists($conn,  $name) {
         exit();
     }
     # if everything is ok / Pass data for user
-    mysqli_stmt_bind_param($stmt, "s", $name);
+    mysqli_stmt_bind_param($stmt, "ss", $name, $email);
     mysqli_stmt_execute($stmt);
 
     # Grabe the data  from the data base
@@ -54,18 +54,18 @@ function AdminExists($conn,  $name) {
 }
 
 
-function creatAdmin($conn, $name,  $pwd){
-    $sql = "INSERT INTO admin_table (adminNom,  adminPwd) VALUES ( ?, ?);"; # Close 
+function creatAdmin($conn, $name,  $email, $pwd){
+    $sql = "INSERT INTO admin_table (adminName, adminEmail, adminPwd) VALUES (?, ?, ?);"; # Close 
     $stmt = mysqli_stmt_init($conn); # Initialise an new prepared statement
     # Check if it doesn't fail
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../index.php?error=usenametaken");
+        header("location: ../parameter.php?error=usenametaken");
         exit();
     }
-    # Hashing the Password to make it unreaderble using built in fuction password_hash
+    # Hashing the Password to make it unreaderble dusing built in fuction password_hash
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
     # if everything is ok 
-    mysqli_stmt_bind_param($stmt, "ss", $name,  $hashedPwd);
+    mysqli_stmt_bind_param($stmt, "sss", $name, $email, $hashedPwd);
     mysqli_stmt_execute($stmt);
     # Grabe thr data 
     $resultData = mysqli_stmt_get_result($stmt);
@@ -81,7 +81,7 @@ function creatAdmin($conn, $name,  $pwd){
 
 # Check imptyinput  For  login 
 function emptyInputLogin($name, $pwd) {
-    $result;
+    $result = false;
     if (empty($name) || empty($pwd)){
         $result = true;
     }
@@ -93,7 +93,7 @@ function emptyInputLogin($name, $pwd) {
 }
 
 function loginAdmin($conn, $name, $pwd) {
-    $adminExixts = AdminExists($conn,  $name);
+    $adminExixts = AdminExists($conn,  $name, $name);
     if ($adminExixts ===  false){
         header("location: ../index.php?error=Mauvaisidentifiant");
         exit();
@@ -104,7 +104,7 @@ function loginAdmin($conn, $name, $pwd) {
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if ($checkPwd === false) {
-        header("location: ../index.php?error=Mauvaispwd");
+        header("location: ../index.php?error=MauvaisIdentifiant");
         exit();
     }
     else if ($checkPwd === true)
@@ -112,7 +112,7 @@ function loginAdmin($conn, $name, $pwd) {
         # Usage of sessions using a session fuction built in php
         session_start();
         $_SESSION["adminId"] = $adminExixts["adminId"];
-        $_SESSION["adminNom"] = $adminExixts["adminNom"];
+        $_SESSION["adminName"] = $adminExixts["adminName"];
         header("location: ../admin.php");
         exit();
     }

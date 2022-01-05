@@ -1,8 +1,10 @@
-<?php
 
-if ( isset( $_POST[ 'submit' ] ) ) {
-    $name = $_POST[ 'name' ];
-    $pwd = $_POST[ 'pwd' ];
+ <?php
+ 
+if ( isset( $_POST['submit'] ) ) {
+
+    $name = $_POST['name'];
+    $pwd = $_POST['pwd'];
 
     # Data base file
     require_once 'db.php';
@@ -14,7 +16,11 @@ if ( isset( $_POST[ 'submit' ] ) ) {
         exit();
     }
     loginAdmin( $conn, $name, $pwd );
-    
 } else {
-    header( 'location: ../admin.php' );
+    header( 'location: ../index.php' );
 }
+?>
+
+ 
+    
+    

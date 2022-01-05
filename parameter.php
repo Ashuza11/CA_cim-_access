@@ -34,21 +34,36 @@
             <h1 class="title">Paramètre</h1>
             <div class="container">
                 <div class="form_container">
-                    <form action="backend/parametre.inc.php" method="POST" class="form">
+<?php
+                if ( isset( $_GET[ 'err' ] ) ) {
+    $err = htmlspecialchars( $_GET[ 'err' ] );
+    switch( $err ) {
+        case 'current_password':
+        echo " Le mot de passe actuel est incorrect";
+        break;
+
+        case 'success_password':
+        echo "Le mot de passe a bien été modifié ! ";
+        break;
+
+    }
+}
+?>
+                    <form action="layout/change_password.php" method="POST" class="form">
                         <h3>Changer le mot de pass</h3>
                         <div class="form-content">
                             <div class="form-left">
                                 <div class="input-group">
                                     <label for="name">Ancien Mot de pass <span class="required">*</span> :</label>
-                                    <input type="password"  placeholder="Entrer l'ansien mot de pass" class="inputfield" autofocus name="name" required>
+                                    <input type="password"  placeholder="Entrer l'ansien mot de pass" class="inputfield" autofocus name="current_password" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Nouveau Mot de pass  <span class="required">*</span> :</label>
-                                    <input type="password" class="inputfield" name="matricule" placeholder="Entrer le Nouveau mot de pass" required>
+                                    <input type="password" class="inputfield" name="new_password" placeholder="Entrer le Nouveau mot de pass" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Confirmer Mot de pass <span class="required">*</span> :</label>
-                                    <input type="password" class="inputfield" placeholder="Confirmer le mot de pass" name="" required>
+                                    <input type="password" class="inputfield" placeholder="Confirmer le mot de pass" name="new_password_retype" required>
                                 </div>
                             </div>
                         </div>
@@ -56,6 +71,16 @@
                             <button name="submit" type="submit" id="btn" data-table-target=".table_result">Envoyer</button>
                         </div>
                     </form>
+                    <?php
+                    if(isset($_GET["error"])) {
+                        if ($_GET["error"] == "ussenametaken"){
+                            echo '<p style="color: red; padding: 10px 15px; text-align: center; font-size: 18px;" >Nom déjà Enregistrer !</p>';
+                        }
+                        else if ($_GET["error"] == "passworddontmatch") {
+                            echo "<p style='color: red; padding: 10px 15px; text-align: center; font-size: 18px; margin-bottom: 0px;'>Mot de passe incorrect !</p>";
+                        }
+                    }
+                ?>
                     <div class="form_container">
                     <form action="backend/register.inc.php" method="POST" class="form">
                         <h3>Ajouter un Administrateur</h3>
@@ -63,7 +88,11 @@
                             <div class="form-left">
                                 <div class="input-group">
                                     <label for="name">Nom <span class="required">*</span> :</label>
-                                    <input type="text" placeholder="Nom le nom complet" class="inputfield" name="name" autofocus  required>
+                                    <input type="text" placeholder="Nom le nom complet" class="inputfield" name="nom" autofocus  required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="name">Email <span class="required">*</span> :</label>
+                                    <input type="email" class="inputfield" placeholder="Entrer votre email " name="email" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Mot de pass <span class="required">*</span> :</label>

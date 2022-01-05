@@ -1,3 +1,4 @@
+<!-- <h6></h6> -->
 <?php 
     include_once 'layout/header.php'
 ?>
@@ -11,7 +12,7 @@
         <button data-form-target="#form">Connexion</button>
     </nav>
     </header>
-    <?php
+     <?php
             if (isset($_GET["error"])){
                 if ($_GET["error"] == "emptyinput"){
                     echo '<p style="color: red; padding: 10px 15px; text-align: center; font-size: 18px;" >Viellez remplir tous les champs !</p>';
@@ -22,8 +23,9 @@
                 else if ($_GET["error"] == "Mauvaispwd") {
                     echo "<p style='color: red; padding: 10px 15px; text-align: center; font-size: 18px;'>Mot de pass incorrect !</p>";
                 }
-            }
-    ?>
+            }  
+?>
+           
     <section class="home-section">
         <div class="home-content">
             <h1 class="title">Gestion d'accès à l'atélier informatique</h1>
@@ -36,7 +38,7 @@
                 <div data-colse-button class="close-btn">&times;</div>
             </div>
             <div class="input-group">
-                <label for="name">Email ou Non d'utilisateur :</label>
+                <label for="name"> Email ou Nom d'utilisateur :</label>
                 <input type="text" class="inputfield" autofocus name="name">
             </div>
             <div class="input-group">
