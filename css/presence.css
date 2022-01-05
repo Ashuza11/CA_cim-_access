@@ -98,6 +98,18 @@ div > .fonc button {
     gap: 100px;
 }
 
+/* Last Traqued users */
+.showTable {
+    padding: 8px;
+    color: #1762A7;
+    cursor: pointer;
+    font-weight: 900;
+    text-decoration: underline;
+    background-color: #f7f7f7;
+    font-size: 15px;
+    font-family: inherit;
+}
+/* Last traqued wrapper */
 /* lLeft part  */
 
 #register-form .form-content .input-group {

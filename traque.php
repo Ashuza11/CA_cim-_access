@@ -31,7 +31,7 @@
         ?>
         <!-- Menu wrapper -->
         <section class="center_box">
-            <h1 class="title">Traquer une personne</h1>
+            <h1 class="title">Traquer la présence</h1>
             <div class="container">
                 <div class="form_container">
                     <form action="backend/traquerStudent.php" method="POST" class="form">
@@ -64,10 +64,11 @@
                             </div>
                         </div>
                         <div class="btn-group">
-                            <button name="submit" type="submit" id="btn" data-table-target="#showStudent">Traquer</button>
+                            <button name="submit" type="submit" id="btn">Traquer</button>
                         </div>
+                        <button type="button" data-student-target="#studentTable" class="showTable">Derniers étudiants traqués</button>
                     </form>
-                    <div class="table_result hide" id="showStudent">
+                    <div class="table_result hide" id="studentTable">
                         <h3>Etudiants récemment traqués</h3>
                         <table class="table_reault">
                             <tr>
@@ -125,9 +126,10 @@
                         <div class="btn-group">
                             <button name="submit" type="submit" id="btn" data-table-target="#show">Traquer</button>
                         </div>
+                        <button name="" type="button" data-visitor-target="#showTableVisitor" class="showTable">Derniers Visiteurs traqués</button>
                     </form>
 
-                    <div class="table_result hide" id="show">
+                    <div class="table_result hide" id="showTableVisitor">
                         <h3>Visiteurs récemment traqués</h3>
                         <table class="table_reault">
                             <tr>
