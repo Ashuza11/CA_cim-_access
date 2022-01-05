@@ -48,7 +48,7 @@
 .main-contents .main .center_box {
     display: flex;
     flex-direction: column;
-    gap: 85px;
+    gap: 30px;
 }
 .main .center_box .title {
     text-align: center;

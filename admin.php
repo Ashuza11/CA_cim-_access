@@ -24,10 +24,6 @@
             <div class="logo-text"><i class="a">C</i>imé <i class="b">A</i>ccess</div>
         </a>
         <nav class="main-nav">
-                    <?php
-
-                        echo '<h2> '.$_SESSION["adminName"].'</h2>';
-                    ?>
             <button class="deconect menu"><a href="index.php">Déconnexion</a></button>
         </nav>
     </header>

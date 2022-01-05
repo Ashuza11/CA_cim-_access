@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 50px;
+    min-width: 200px;
 }
 /* Menu title */
 .menu .menu_title {

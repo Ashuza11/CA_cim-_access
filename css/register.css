@@ -158,6 +158,19 @@ div.btn-group {
 #btn:focus {
     background-color: #CAEBFF;
 }
+
+/* Link to view last registerments */
+.showTable {
+    padding: 8px;
+    color: #1762A7;
+    cursor: pointer;
+    font-weight: 900;
+    text-decoration: underline;
+    background-color: #f7f7f7;
+    font-size: 15px;
+    font-family: inherit;
+}
+/* Link wrapper */
 /* Register form end */
 
 /* Table */

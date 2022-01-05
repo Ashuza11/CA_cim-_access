@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Mot de pass <span class="required">*</span> :</label>
-                                    <input type="password" class="inputfield" placeholder="Entrer le mot de pass" name="pwd" required>
+                                    <input type="password" class="inputfield" placeholder="Entrer l'email" name="pwd" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Mot de pass encore <span class="required">*</span> :</label>

@@ -31,27 +31,28 @@
             <h1 class="title">Gestion d'accès à l'atélier informatique</h1>
             <button class="button" data-form-target="#form">Connexion</button>
         </div>
-    </section>
-    <div class="form" id="form">
+        <div class="form" id="form">
         <form action="backend/login.php" method="POST" id="login-form">
             <div class="time-circle">
                 <div data-colse-button class="close-btn">&times;</div>
             </div>
             <div class="input-group">
-                <label for="name"> Email ou Nom d'utilisateur :</label>
+                <label for="name">Nom <span class="required">*</span> :</label>
                 <input type="text" class="inputfield" autofocus name="name">
             </div>
             <div class="input-group">
-                <label for="pwd">Mot de passe :</label>
+                <label for="name">Mot de pass <span class="required">*</span> :</label>
                 <input type="password" class="inputfield pwd" name="pwd">
             </div>
             <div class="input-group">
                 <button name="submit" type="submit" id="btn">Se connecter</button>
             </div> 
             <div id="login-register-text">
-                <p>Mot de pass aublié ! <a href="admin.php">Changer votre mot de pass</a></p>
+                <p>Admn seulement ! <a href="admin.php">Admin</a></p>
             </div>
         </form>
+    </section>
+    
     </div>
     <div class="circle-1"></div>
     <div class="circle-2"></div>

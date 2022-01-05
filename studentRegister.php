@@ -91,8 +91,9 @@
                         <div class="btn-group">
                             <button name="submit" type="submit" id="btn">Enregistrer</button>
                         </div>
+                        <button type="button" data-student-target="#studentTable" class="showTable">Derniers étudiants enregistrés</button>
                     </form>
-                    <div class="table_result hide" id="showStudentTable">
+                    <div class="table_result hide" id="studentTable">
                         <h3>Etudiants récemment enregistrés</h3>
                         <table class="table_reault">
                             <tr>
@@ -146,11 +147,12 @@
                             </div>
                         </div>
                         <div class="btn-group">
-                            <button name="submit" type="submit" id="btn" data-table-target="#show">Enregistrer</button>
+                            <button name="submit" type="submit" id="btn">Enregistrer</button>
                         </div>
+                        <button name="" type="button" data-visitor-target="#showTableVisitor" class="showTable">Derniers Visiteurs enregistrés</button>
                     </form>
 
-                    <div class="table_result hide" id="show">
+                    <div class="table_result hide" id="showTableVisitor">
                         <h3>Visiteurs récemment enregistrés</h3>
                         <table class="table_reault">
                             <tr>

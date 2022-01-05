@@ -7,13 +7,17 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-25%, -65%) scale(0);
+    transform: translate(-15%, -65%) scale(0);
     transition: 500ms ease-in-out;
-    max-width: 80%;
+    max-width: 90%;
     z-index: 20;
+    min-width: 200px;
+}
+.form form {
+    min-width: 400px;
 }
 .form.active {
-    transform: translate(-25%, -65%) scale(1);
+    transform: translate(-15%, -65%) scale(1);
 }
 /* Link Massege  */
 #login-form .login-register-text, p {
@@ -35,7 +39,7 @@
 #login-form {
     border: 1px solid black;
     width: 70vw;
-    max-width: 50%;
+    max-width: 30%;
     padding: 2rem 4rem;
     border-radius: 5px;
     background-color: #F7F8FC;
@@ -53,9 +57,11 @@
 }
 
 .input-group label {
-    font-weight: bold;
     margin-bottom: .6rem;
-    color: #2F303A;
+}
+.input-group label span{
+    color: #BC3A80;
+    margin-right: 3px;
 }
 
 .inputfield {
@@ -105,7 +111,10 @@
     top: 10px;
     right: 15px;
     border-radius: 50%;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form .close-btn {
@@ -152,5 +161,24 @@
         width: 80vw;
         max-width: inherit;
         margin: 2rem 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .form {
+        position: fixed;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -65%) scale(0);
+        transition: 500ms ease-in-out;
+        max-width: 90%;
+        z-index: 20;
+        min-width: 200px;
+    }
+    .form form {
+        min-width: 400px;
+    }
+    .form.active {
+        transform: translate(-50%, -65%) scale(1);
     }
 }
