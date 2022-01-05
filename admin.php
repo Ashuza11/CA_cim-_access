@@ -1,5 +1,9 @@
+<!-- ff -->
 <?php
     include 'backend/adminFunction.php';
+    session_start();
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +39,7 @@
         <!-- Menu wrapper -->
         <section class="center_box">
             <h1 class="title">Aperçu</h1>
+            
             <div class="box_container">
                 <div class="stat_box">
                     <h5>Nombre d'étudiant enregistrés</h5>

@@ -2,24 +2,29 @@
 <?php
     include_once 'backend/db.php';
     $token = null;
-    $query= null;
-    if(isset($_GET['search'])){
+    $query= "";
+  if(isset($_GET['search'])){
     $search = $_GET['search'];
     $table = $_GET['table'];
-    $table =  $_GET['table'] == 'etudiant' ? 'register_student' : 'register_guest';
+     if($_GET['table'] == 'etudiant'){
+        $table =  'register_student';
+        $tableJonction = 'traque_student';
+        $field = " (register_student.studentName, register_student.matricule) ";
+        $token = 1;
+        $fetched = 'matricule';
+    }else{
+        $table = 'register_guest';
+        $tableJonction = 'traque_guest';
+        $field = " (register_guest.guestName,register_guest.telephone) ";
+        $token = 2;
+        $fetched = 'telephone';
+    } 
     $search = str_replace(" ","",$search);
 
-    $query = "SELECT * FROM ". $table . " WHERE CONCAT ";
-    if($table == 'register_student'){
-        $field = " (studentName,matricule,telephone,faculty,promotion) ";
-        $token = 1;
-    }else{
-        $field = " (guestName,guestEmail,telephone,Adresse) ";
-        $token = 2;
-    }
-    $query = $query . $field . " LIKE '%$search%' ";
-    }
-?>
+    $query = "SELECT * FROM " .$table." INNER JOIN ".$tableJonction." ON " .$table.".$fetched"."="."$tableJonction".".$fetched " ." WHERE CONCAT ". $field ." LIKE '%$search%' "." ORDER BY " ."$tableJonction".".dateandTime DESC ";
+
+     }
+    ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -82,43 +87,45 @@
                     <div class="table">
                         <h3 class="table_title">Etudiants</h3>
                         <table class="table_data">
-                            <tr>
-                            <th>N°</th>
-                        <th>Nom</th>
-                        <th>telephone</th>
+                        <tr>
+                            <th>Nom</th>
                         <th>Matricule</th>
-                        <th>Faculté</th>
-                        <th>Promotion</th>
-                            </tr>
+                        <th>Motif</th>
+                        <th>Duree</th>
+                        <th>Date</th>
+                        <th>Telephone</th>
+                            </tr> 
+                            
+
+
                             <?php
-                                    
-                                    if($token != 1){
-                                        $query2 = "SELECT * FROM `register_student` ORDER BY studentId ";
-                                        $query_run2= mysqli_query( $conn,$query2);
-                                    }elseif($token == 1) {
-                                        $query_run2= mysqli_query( $conn, $query);
-                                    }  
+                        
+                        if($token != 1){
+                            $query2 = "SELECT * FROM register_student INNER JOIN traque_student ON register_student.matricule=traque_student.matricule ORDER BY traque_student.dateandTime DESC";
+                            $query_run2= mysqli_query( $conn,$query2);
+                        }elseif($token == 1) {
+                        $query_run2= mysqli_query( $conn, $query);
+                        }  
 
 
-                                if(mysqli_num_rows($query_run2)>0){
-                                    $id=0;
-                                    foreach($query_run2 as $items1){
-                                        $id++;
-                            ?>
-                                        <tr>
-                                            
-                                    <td> <?php echo  $id ;?> </td>
-                                    <td> <?php echo $items1 ['studentName']  ;?> </td>
-                                    <td> <?php echo $items1 ['telephone'] ; ?> </td>
-                                    <td> <?php echo $items1 ['matricule'] ;?> </td>
-                                    <td> <?php echo $items1 ['faculty']  ;?> </td>
-                                    <td> <?php echo $items1 ['promotion']  ;?> </td>
-                                </tr>
+                    if(mysqli_num_rows($query_run2)>0){
+                        foreach($query_run2 as $items1){
+                    ?>
+                            <tr>
+                        <td> <?php echo $items1 ['studentName']  ;?> </td>
+                        <td> <?php echo $items1 ['matricule']  ;?> </td>
+                        <td> <?php echo $items1 ['motif'] ; ?> </td>
+                        <td> <?php echo $items1 ['duration'] ;?> </td>
+                        <td> <?php echo $items1 ['dateandTime']  ;?> </td>
+                        <td> <?php echo $items1 ['telephone']  ;?> </td>
+                    </tr>
 
-                                <?php
-                                    }
-                                }
-                                ?>
+                    <?php
+                        }
+                    }
+
+
+                    ?>
                                                             
                         </table>
                     </div>
@@ -126,38 +133,40 @@
                         <h3 class="table_title">Visiteurs</h3>
                         <table class="table_data">
                             <tr>
-                                <th>N°</th>
-                                <th>Nom</th>
-                                <th>email</th>
-                                <th>telephone</th>
-                                <th>adresse</th>
+                                        <th>Nom</th>
+                                        <th>Email</th>
+                                        <th>Motif</th>
+                                        <th>Duree</th>
+                                        <th>Date</th>
+                                        <th>Telephone</th>
                             </tr>
                             <?php 
 
-                                        if($token != 2){
-                                            $query1 = "SELECT * FROM `register_guest` ORDER BY guestId ";
-                                            $query_run1= mysqli_query( $conn, $query1);
-                                        }elseif($token == 2) {
-                                            $query_run1= mysqli_query( $conn, $query);
-                                        } 
-                                    if(mysqli_num_rows($query_run1)>0){
-                                        $id=0;
-                                        foreach($query_run1 as $items1){
-                                            $id++;
-                                    ?>
-                                            <tr>
-                                        <td> <?php echo  $id;?> </td>
-                                        <td> <?php echo $items1 ['guestName']  ;?> </td>
-                                        <td> <?php echo $items1 ['guestEmail']  ;?> </td>
-                                        <td> <?php echo $items1 ['telephone']  ;?> </td>
-                                        <td> <?php echo $items1 ['Adresse'] ; ?> </td>
-                                    </tr>
+                                                if($token != 2){
+                                                    $query1 = "SELECT * FROM register_guest INNER JOIN traque_guest ON register_guest.telephone=traque_guest.telephone ORDER BY traque_guest.dateandTime DESC";
+                                                    $query_run1= mysqli_query( $conn, $query1);
+                                                }elseif($token == 2) {
+                                                $query_run1= mysqli_query( $conn, $query);
+                                                } 
+                                                    
 
-                                    <?php
-                                        }
+                                                if(mysqli_num_rows($query_run1)>0){
+                                                foreach($query_run1 as $items1){
+                                ?>
+                                             <tr>
+                                                <td> <?php echo $items1 ['guestName']  ;?> </td>
+                                                <td> <?php echo $items1 ['guestEmail']  ;?> </td>
+                                                <td> <?php echo $items1 ['motif'] ; ?> </td>
+                                                <td> <?php echo  $items1['duration']  ;?> </td>
+                                                <td> <?php echo  $items1['dateandTime']  ;?> </td>
+                                                <td> <?php echo  $items1['telephone']  ;?> </td>
+                                         </tr>
+
+                            <?php
                                     }
+                                         }
 
-                                    ?>
+                            ?>  
                         </table>
                         
                     </div>
