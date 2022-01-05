@@ -34,22 +34,13 @@
             <h1 class="title">Paramètre</h1>
             <div class="container">
                 <div class="form_container">
-<?php
-                if ( isset( $_GET[ 'err' ] ) ) {
-    $err = htmlspecialchars( $_GET[ 'err' ] );
-    switch( $err ) {
-        case 'current_password':
-        echo " Le mot de passe actuel est incorrect";
-        break;
 
-        case 'success_password':
-        echo "Le mot de passe a bien été modifié ! ";
-        break;
-
-    }
-}
-?>
-                    <form action="layout/change_password.php" method="POST" class="form">
+                <?php
+      session_start();
+      if(isset($_SESSION["adminId"]) AND isset($_SESSION["adminName"]))
+      {
+      ?>
+                    <form action="backend/change_password.php" method="POST" class="form">
                         <h3>Changer le mot de pass</h3>
                         <div class="form-content">
                             <div class="form-left">
@@ -71,6 +62,12 @@
                             <button name="submit" type="submit" id="btn" data-table-target=".table_result">Envoyer</button>
                         </div>
                     </form>
+                    <?php
+     }
+     else{
+      echo '<p>Vous devez être connecté pour pouvoir changer votre mot de passe !</p>';
+     }
+     ?>
                     <?php
                     if(isset($_GET["error"])) {
                         if ($_GET["error"] == "ussenametaken"){

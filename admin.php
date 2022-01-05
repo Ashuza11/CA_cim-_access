@@ -2,8 +2,7 @@
 <?php
     include 'backend/adminFunction.php';
     session_start();
-    
-
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
