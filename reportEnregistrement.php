@@ -21,16 +21,18 @@
     }
 ?>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cimé Access</title> 
+    <title>Cimé Access</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/report.css">
     <link rel="stylesheet" href="css/menu.css">
-    <link rel = "icon" href = "img/logo.png" type = "image/x-icon">
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
 </head>
+
 <body class="main-contents">
     <!-- Header Nav bar-->
     <header class="main-header">
@@ -55,10 +57,11 @@
             <h1 class="title">Rapport Enregistrements</h1>
             <div class="contentContainer">
                 <div class="content_header">
-                    <form method = 'GET'>
+                    <form method='GET'>
                         <div class="search_bar">
                             <input type="text" class="search_txt" name="search" placeholder="Récherche">
-                            <button type="submit" class="search_box"><i><img src="img/icon/search.svg" class="search" alt="icon"></i></button>
+                            <button type="submit" class="search_box"><i><img src="img/icon/search.svg" class="search"
+                                        alt="icon"></i></button>
                         </div>
                         <div class="headerBotton">
                             <div class="btn1">
@@ -68,14 +71,14 @@
                                     <option value="etudiant">Etudiant</option>
                                     <option value="visiteur">Visiteur</option>
                                 </select>
-                        </div>
+                            </div>
                     </form>
                     <div class="right_header_btn">
                         <button name="actualise" class="btn1" type="report.php">Actualiser</button>
                         <div class="btn1">
                             <img src="img/icon/export.svg" class="icon" alt="icon">
                             <a href="backend/exporterSaveStudent.php">
-                            <button name="export" type="button" >Exporter le fichier</button></a>
+                                <button name="export" type="button">Exporter le fichier</button></a>
                         </div>
                     </div>
                 </div>
@@ -84,12 +87,12 @@
                         <h3 class="table_title">Etudiants</h3>
                         <table class="table_data">
                             <tr>
-                            <th>N°</th>
-                        <th>Nom</th>
-                        <th>telephone</th>
-                        <th>Matricule</th>
-                        <th>Faculté</th>
-                        <th>Promotion</th>
+                                <th>N°</th>
+                                <th>Nom</th>
+                                <th>telephone</th>
+                                <th>Matricule</th>
+                                <th>Faculté</th>
+                                <th>Promotion</th>
                             </tr>
                             <?php
                                     
@@ -106,21 +109,21 @@
                                     foreach($query_run2 as $items1){
                                         $id++;
                             ?>
-                                        <tr>
-                                            
-                                    <td> <?php echo  $id ;?> </td>
-                                    <td> <?php echo $items1 ['studentName']  ;?> </td>
-                                    <td> <?php echo $items1 ['telephone'] ; ?> </td>
-                                    <td> <?php echo $items1 ['matricule'] ;?> </td>
-                                    <td> <?php echo $items1 ['faculty']  ;?> </td>
-                                    <td> <?php echo $items1 ['promotion']  ;?> </td>
-                                </tr>
+                            <tr>
 
-                                <?php
+                                <td> <?php echo  $id ;?> </td>
+                                <td> <?php echo $items1 ['studentName']  ;?> </td>
+                                <td> <?php echo $items1 ['telephone'] ; ?> </td>
+                                <td> <?php echo $items1 ['matricule'] ;?> </td>
+                                <td> <?php echo $items1 ['faculty']  ;?> </td>
+                                <td> <?php echo $items1 ['promotion']  ;?> </td>
+                            </tr>
+
+                            <?php
                                     }
                                 }
                                 ?>
-                                                            
+
                         </table>
                     </div>
                     <div class="table">
@@ -146,21 +149,21 @@
                                         foreach($query_run1 as $items1){
                                             $id++;
                                     ?>
-                                            <tr>
-                                        <td> <?php echo  $id;?> </td>
-                                        <td> <?php echo $items1 ['guestName']  ;?> </td>
-                                        <td> <?php echo $items1 ['guestEmail']  ;?> </td>
-                                        <td> <?php echo $items1 ['telephone']  ;?> </td>
-                                        <td> <?php echo $items1 ['Adresse'] ; ?> </td>
-                                    </tr>
+                            <tr>
+                                <td> <?php echo  $id;?> </td>
+                                <td> <?php echo $items1 ['guestName']  ;?> </td>
+                                <td> <?php echo $items1 ['guestEmail']  ;?> </td>
+                                <td> <?php echo $items1 ['telephone']  ;?> </td>
+                                <td> <?php echo $items1 ['Adresse'] ; ?> </td>
+                            </tr>
 
-                                    <?php
+                            <?php
                                         }
                                     }
 
                                     ?>
                         </table>
-                        
+
                     </div>
                 </div>
             </div>
@@ -172,4 +175,5 @@
     ?>
     <!-- Footer -->
 </body>
+
 </html>

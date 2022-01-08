@@ -26,16 +26,18 @@
      }
     ?>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cimé Access</title> 
+    <title>Cimé Access</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/report.css">
     <link rel="stylesheet" href="css/menu.css">
-    <link rel = "icon" href = "img/logo.png" type = "image/x-icon">
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
 </head>
+
 <body class="main-contents">
     <!-- Header Nav bar-->
     <header class="main-header">
@@ -60,10 +62,11 @@
             <h1 class="title">Rapport Traques</h1>
             <div class="contentContainer">
                 <div class="content_header">
-                    <form method = 'GET'>
+                    <form method='GET'>
                         <div class="search_bar">
                             <input type="text" class="search_txt" name="search" placeholder="Récherche">
-                            <button type="submit" class="search_box"><i><img src="img/icon/search.svg" class="search" alt="icon"></i></button>
+                            <button type="submit" class="search_box"><i><img src="img/icon/search.svg" class="search"
+                                        alt="icon"></i></button>
                         </div>
                         <div class="headerBotton">
                             <div class="btn1">
@@ -73,14 +76,14 @@
                                     <option value="etudiant">Etudiant</option>
                                     <option value="visiteur">Visiteur</option>
                                 </select>
-                        </div>
+                            </div>
                     </form>
                     <div class="right_header_btn">
                         <button name="actualise" class="btn1" type="report.php">Actualiser</button>
                         <div class="btn1">
                             <img src="img/icon/export.svg" class="icon" alt="icon">
-                            <a href="backend/exporter.php">
-                            <button name="export" type="button" >Exporter le fichier</button></a>
+                            <a href="backend/exporter_traque_etud.php">
+                                <button name="export" type="button">Exporter le fichier</button></a>
                         </div>
                     </div>
                 </div>
@@ -88,15 +91,15 @@
                     <div class="table">
                         <h3 class="table_title">Etudiants</h3>
                         <table class="table_data">
-                        <tr>
-                            <th>Nom</th>
-                        <th>Matricule</th>
-                        <th>Motif</th>
-                        <th>Duree</th>
-                        <th>Date</th>
-                        <th>Telephone</th>
-                            </tr> 
-                            
+                            <tr>
+                                <th>Nom</th>
+                                <th>Matricule</th>
+                                <th>Motif</th>
+                                <th>Duree</th>
+                                <th>Date</th>
+                                <th>Telephone</th>
+                            </tr>
+
 
 
                             <?php
@@ -113,33 +116,33 @@
                         foreach($query_run2 as $items1){
                     ?>
                             <tr>
-                        <td> <?php echo $items1 ['studentName']  ;?> </td>
-                        <td> <?php echo $items1 ['matricule']  ;?> </td>
-                        <td> <?php echo $items1 ['motif'] ; ?> </td>
-                        <td> <?php echo $items1 ['duration'] ;?> </td>
-                        <td> <?php echo $items1 ['dateandTime']  ;?> </td>
-                        <td> <?php echo $items1 ['telephone']  ;?> </td>
-                    </tr>
+                                <td> <?php echo $items1 ['studentName']  ;?> </td>
+                                <td> <?php echo $items1 ['matricule']  ;?> </td>
+                                <td> <?php echo $items1 ['motif'] ; ?> </td>
+                                <td> <?php echo $items1 ['duration'] ;?> </td>
+                                <td> <?php echo $items1 ['dateandTime']  ;?> </td>
+                                <td> <?php echo $items1 ['telephone']  ;?> </td>
+                            </tr>
 
-                    <?php
+                            <?php
                         }
                     }
 
 
                     ?>
-                                                            
+
                         </table>
                     </div>
                     <div class="table">
                         <h3 class="table_title">Visiteurs</h3>
                         <table class="table_data">
                             <tr>
-                                        <th>Nom</th>
-                                        <th>Email</th>
-                                        <th>Motif</th>
-                                        <th>Duree</th>
-                                        <th>Date</th>
-                                        <th>Telephone</th>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Motif</th>
+                                <th>Duree</th>
+                                <th>Date</th>
+                                <th>Telephone</th>
                             </tr>
                             <?php 
 
@@ -154,22 +157,22 @@
                                                 if(mysqli_num_rows($query_run1)>0){
                                                 foreach($query_run1 as $items1){
                                 ?>
-                                             <tr>
-                                                <td> <?php echo $items1 ['guestName']  ;?> </td>
-                                                <td> <?php echo $items1 ['guestEmail']  ;?> </td>
-                                                <td> <?php echo $items1 ['motif'] ; ?> </td>
-                                                <td> <?php echo  $items1['duration']  ;?> </td>
-                                                <td> <?php echo  $items1['dateandTime']  ;?> </td>
-                                                <td> <?php echo  $items1['telephone']  ;?> </td>
-                                         </tr>
+                            <tr>
+                                <td> <?php echo $items1 ['guestName']  ;?> </td>
+                                <td> <?php echo $items1 ['guestEmail']  ;?> </td>
+                                <td> <?php echo $items1 ['motif'] ; ?> </td>
+                                <td> <?php echo  $items1['duration']  ;?> </td>
+                                <td> <?php echo  $items1['dateandTime']  ;?> </td>
+                                <td> <?php echo  $items1['telephone']  ;?> </td>
+                            </tr>
 
                             <?php
                                     }
                                          }
 
-                            ?>  
+                            ?>
                         </table>
-                        
+
                     </div>
                 </div>
             </div>
@@ -181,4 +184,5 @@
     ?>
     <!-- Footer -->
 </body>
+
 </html>
