@@ -27,7 +27,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
     $result =  mysqli_stmt_execute( $stmt );
     mysqli_stmt_close( $stmt );
     if($result == True){
-        header( 'location: ../traque.php?Traque = Succes' );
+        header( 'location: ../traque.php?Traque = Success' );
     }
 } else {
     header( 'location: ../traque.php' );

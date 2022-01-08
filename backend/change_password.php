@@ -1,33 +1,59 @@
-
 <?php
-    try {
-            $bdd = new PDO("mysql:host=localhost;dbname=cime_access;charset=utf8", "root", "");
-        }
-    catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-        }
-    session_start();
-        $pwd=$_POST['current_password'];
-        $pwdHashed = $adminExixts["adminPwd"];
-        $checkPwd = password_verify($pwd, $pwdHashed);
-    if ($checkPwd === false) {
-        header("location: ../parameter.php?error=MauvaisPassword");
-        exit();
-    }else {
-        if ($_POST['new_password']==$_POST['new_password_retype'])
-        {
-            $pass_hache=sha1($_POST['adminPwd']);
-            $req = $bdd->prepare('UPDATE admin_table SET adminPwd=? WHERE adminName = ?');
-            $req->execute(array(
-            $pass_hache,
-            $_SESSION['adminName']
-        ));
-            echo '<p>La modification de mot de passe a été prise en compte ! Déconnectez-vous et reconnectez-vous afin de valider ce changement.</p><br/>';
-        }
-        else{
-            echo'Vous n\'avez pas tapé deux fois le même mot de passe';
-        }
-            
-    }
- 
-?>
+// Démarrage de la session 
+session_start();try {
+    $bdd = new PDO( 'mysql:host=localhost;dbname=cime_access;charset=utf8', 'root', '' );
+} catch ( Exception $e ) {
+    die( 'Erreur : ' . $e->getMessage() );
+}
+// Si la session n'existe pas 
+if(!isset($_SESSION['adminId']) &&($_SESSION['adminName']))
+{
+    header('Location:../Index.php');
+    die();
+}
+
+
+// Si les variables existent 
+if(!empty($_POST["current_password"]) && !empty($_POST['new_password']) && !empty($_POST['new_password_retype'])){
+    // XSS 
+    $current_password = htmlspecialchars($_POST["current_password"]);
+    $new_password = htmlspecialchars($_POST['new_password']);
+    $new_password_retype = htmlspecialchars($_POST['new_password_retype']);
+    $name=$_POST['nameAdmin'];
+
+    // On récupère les infos de l'utilisateur
+    $check_password  = $bdd->prepare("SELECT adminPwd FROM admin_table WHERE adminName = :adminName;");
+    $check_password->execute(array(
+        "adminName" => $_SESSION['adminName']
+    ));
+    $data_password = $check_password->fetch();
+
+    // Si le mot de passe est le bon
+    // if(password_verify($current_password, $data_password['adminPwd']))
+    // {
+        // Si le mot de passe tapé est bon
+        if($new_password === $new_password_retype){
+
+            // On chiffre le mot de passe
+            $new_password = password_hash($new_password,  PASSWORD_BCRYPT);
+            // On met à jour la table utiisateurs
+            $update = $bdd->prepare('UPDATE admin_table SET adminPwd= :adminPwd WHERE adminName = :adminName');
+            $update->execute(array(
+                "adminPwd" => $new_password,
+                "adminName" => $_SESSION['adminName']
+            ));
+            // On redirige
+            header('Location: ../parameter.php?err=success_password');
+            die();
+         }
+        // }
+    // else{
+    //     header('L}ocation: ../parameter.php?err=current_password');
+    //     die();
+    // }
+}
+else{
+    header('Location: ../parameter.php');
+    // header( 'location: ../index.php' );
+    die();
+}

@@ -63,7 +63,7 @@ function creatAdmin($conn, $name,  $email, $pwd){
         exit();
     }
     # Hashing the Password to make it unreaderble dusing built in fuction password_hash
-    $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
+    $hashedPwd = password_hash($pwd, PASSWORD_BCRYPT);
     # if everything is ok 
     mysqli_stmt_bind_param($stmt, "sss", $name, $email, $hashedPwd);
     mysqli_stmt_execute($stmt);

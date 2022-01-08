@@ -79,7 +79,8 @@
                         <button name="actualise" class="btn1" type="report.php">Actualiser</button>
                         <div class="btn1">
                             <img src="img/icon/export.svg" class="icon" alt="icon">
-                            <button name="export" type="#" >Exporter le fichier</button>
+                            <a href="backend/exporter.php">
+                            <button name="export" type="button" >Exporter le fichier</button></a>
                         </div>
                     </div>
                 </div>

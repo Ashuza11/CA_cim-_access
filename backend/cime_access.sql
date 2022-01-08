@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 23 déc. 2021 à 11:48
+-- Généré le : ven. 07 jan. 2022 à 17:36
 -- Version du serveur : 5.7.33
 -- Version de PHP : 7.4.19
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `cime_access`
 --
-CREATE DATABASE IF NOT EXISTS `cime_access` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `cime_access`;
 
 -- --------------------------------------------------------
 
@@ -30,15 +28,20 @@ USE `cime_access`;
 --
 
 CREATE TABLE `admin_table` (
-  `AdminId` int(3) NOT NULL,
-  `AdminNom` varchar(128) NOT NULL,
-  `AdminEmail` varchar(128) NOT NULL,
-  `AdminPwd` varchar(128) NOT NULL
+  `adminId` int(3) NOT NULL,
+  `adminName` varchar(128) NOT NULL,
+  `adminEmail` varchar(128) NOT NULL,
+  `adminPwd` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `admin_table`
+--
+
+INSERT INTO `admin_table` (`adminId`, `adminName`, `adminEmail`, `adminPwd`) VALUES
+(7, 'alse', 'al@gmail.com', '$2y$10$JQBtVtzlhc9bidyERTHcau/618SIKxG.rJWSKlShn9b8Xh7QYm6vG');
+
 -- --------------------------------------------------------
--- Creation du super Admin
-INSERT INTO `admin_table` (`AdminId`, `AdminNom`, `AdminEmail`, `AdminPwd`) VALUES (NULL, 'Jems', 'jems@gmail.com', 'jems123');
 
 --
 -- Structure de la table `register_guest`
@@ -59,7 +62,8 @@ CREATE TABLE `register_guest` (
 INSERT INTO `register_guest` (`guestId`, `guestName`, `guestEmail`, `telephone`, `Adresse`) VALUES
 (1, 'jomo', 'j@gmail.com', '987654323', 'KYESHERU'),
 (2, 'patricia', 'p@gmail.com', '096', 'goma'),
-(3, 'dane', 'dane12334@gmail', '092436357', 'beni');
+(3, 'dane', 'dane12334@gmail', '092436357', 'beni'),
+(4, 'yves', 'y@gmail.com', '0974566677', 'HIMBI');
 
 -- --------------------------------------------------------
 
@@ -108,8 +112,7 @@ INSERT INTO `traque_guest` (`Id`, `telephone`, `motif`, `duration`, `dateandTime
 (3, '096', 'Recherche', 1, '2021-12-23 08:45:47'),
 (4, '987654323', 'ENTRETIENT', 1, '2021-12-23 08:47:05'),
 (5, '096', 'ENTRETIEN', 1, '2021-12-23 08:47:41'),
-(6, '987654323', 'RECHERCHE', 9, '2021-12-23 08:48:07'),
-(7, '096', 'Formation', 2, '2021-12-23 12:14:34');
+(6, '987654323', 'RECHERCHE', 9, '2021-12-23 08:48:07');
 
 -- --------------------------------------------------------
 
@@ -133,11 +136,7 @@ INSERT INTO `traque_student` (`Id`, `matricule`, `motif`, `duration`, `dateandTi
 (2, '16040', 'COURS', 5, '2021-12-23 08:49:18'),
 (3, '12456', 'RECHERCHE', 1, '2021-12-23 08:50:05'),
 (4, '16423', 'cours', 3, '2021-12-23 11:26:19'),
-(5, '13877', 'Cours', 8, '2021-12-23 11:26:45'),
-(6, '16040', 'Formation', 4, '2021-12-23 11:28:47'),
-(7, '16040', 'ConfÃ©rence', 3, '2021-12-23 11:55:56'),
-(8, '12456', 'Cours', 8, '2021-12-23 11:56:50'),
-(9, '16040', 'ConfÃ©rence', 5, '2021-12-23 12:03:28');
+(5, '13877', 'Cours', 8, '2021-12-23 11:26:45');
 
 --
 -- Index pour les tables déchargées
@@ -147,7 +146,7 @@ INSERT INTO `traque_student` (`Id`, `matricule`, `motif`, `duration`, `dateandTi
 -- Index pour la table `admin_table`
 --
 ALTER TABLE `admin_table`
-  ADD PRIMARY KEY (`AdminId`);
+  ADD PRIMARY KEY (`adminId`);
 
 --
 -- Index pour la table `register_guest`
@@ -181,13 +180,13 @@ ALTER TABLE `traque_student`
 -- AUTO_INCREMENT pour la table `admin_table`
 --
 ALTER TABLE `admin_table`
-  MODIFY `AdminId` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `adminId` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `register_guest`
 --
 ALTER TABLE `register_guest`
-  MODIFY `guestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `guestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `register_student`
@@ -199,7 +198,7 @@ ALTER TABLE `register_student`
 -- AUTO_INCREMENT pour la table `traque_guest`
 --
 ALTER TABLE `traque_guest`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `traque_student`

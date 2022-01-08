@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,10 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/parameter.css">
     <link rel="stylesheet" href="css/menu.css">
-    <link rel = "icon" href = "img/logo.png" type = "image/x-icon">
-    <title>Cimé Access</title> 
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <title>Cimé Access</title>
 </head>
+
 <body class="main-contents">
     <!-- Header Nav bar-->
     <header class="main-header">
@@ -35,9 +37,9 @@
             <div class="container">
                 <div class="form_container">
 
-                <?php
+                    <?php
       session_start();
-      if(isset($_SESSION["adminId"]) AND isset($_SESSION["adminName"]))
+      if(isset($_SESSION['adminId']) AND isset($_SESSION['adminName']))
       {
       ?>
                     <form action="backend/change_password.php" method="POST" class="form">
@@ -45,27 +47,33 @@
                         <div class="form-content">
                             <div class="form-left">
                                 <div class="input-group">
-                                    <label for="name">Ancien Mot de pass <span class="required">*</span> :</label>
-                                    <input type="password"  placeholder="Entrer l'ansien mot de pass" class="inputfield" autofocus name="current_password" required>
+                                    <label for="name">Nom <span class="required">*</span> :</label>
+                                    <input type="name" placeholder="Entrer votre nom" class="inputfield" autofocus
+                                        name="nameAdmin" required>
                                 </div>
                                 <div class="input-group">
-                                    <label for="name">Nouveau Mot de pass  <span class="required">*</span> :</label>
-                                    <input type="password" class="inputfield" name="new_password" placeholder="Entrer le Nouveau mot de pass" required>
+                                    <label for="name">Ancien Mot de pass <span class="required">*</span> :</label>
+                                    <input type="password" placeholder="Entrer l'ansien mot de pass" class="inputfield"
+                                        autofocus name="current_password" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="name">Nouveau Mot de pass <span class="required">*</span> :</label>
+                                    <input type="password" class="inputfield" name="new_password"
+                                        placeholder="Entrer le Nouveau mot de pass" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="name">Confirmer Mot de pass <span class="required">*</span> :</label>
-                                    <input type="password" class="inputfield" placeholder="Confirmer le mot de pass" name="new_password_retype" required>
+                                    <input type="password" class="inputfield" placeholder="Confirmer le mot de pass"
+                                        name="new_password_retype" required>
                                 </div>
                             </div>
                         </div>
                         <div class="btn-group">
-                            <button name="submit" type="submit" id="btn" data-table-target=".table_result">Envoyer</button>
+                            <button name="submit" type="submit" id="btn"
+                                data-table-target=".table_result">Envoyer</button>
                         </div>
                     </form>
                     <?php
-     }
-     else{
-      echo '<p>Vous devez être connecté pour pouvoir changer votre mot de passe !</p>';
      }
      ?>
                     <?php
@@ -79,34 +87,38 @@
                     }
                 ?>
                     <div class="form_container">
-                    <form action="backend/register.inc.php" method="POST" class="form">
-                        <h3>Ajouter un Administrateur</h3>
-                        <div class="form-content">
-                            <div class="form-left">
-                                <div class="input-group">
-                                    <label for="name">Nom <span class="required">*</span> :</label>
-                                    <input type="text" placeholder="Nom le nom complet" class="inputfield" name="nom" autofocus  required>
-                                </div>
-                                <div class="input-group">
-                                    <label for="name">Email <span class="required">*</span> :</label>
-                                    <input type="email" class="inputfield" placeholder="Entrer votre email " name="email" required>
-                                </div>
-                                <div class="input-group">
-                                    <label for="name">Mot de pass <span class="required">*</span> :</label>
-                                    <input type="password" class="inputfield" placeholder="Entrer l'email" name="pwd" required>
-                                </div>
-                                <div class="input-group">
-                                    <label for="name">Mot de pass encore <span class="required">*</span> :</label>
-                                    <input type="password" class="inputfield" placeholder="Confirmer le mot de pass" name="cpwd" required>
+                        <form action="backend/register.inc.php" method="POST" class="form">
+                            <h3>Ajouter un Administrateur</h3>
+                            <div class="form-content">
+                                <div class="form-left">
+                                    <div class="input-group">
+                                        <label for="name">Nom <span class="required">*</span> :</label>
+                                        <input type="text" placeholder="Nom le nom complet" class="inputfield"
+                                            name="nom" autofocus required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="name">Email <span class="required">*</span> :</label>
+                                        <input type="email" class="inputfield" placeholder="Entrer votre email "
+                                            name="email" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="name">Mot de pass <span class="required">*</span> :</label>
+                                        <input type="password" class="inputfield" placeholder="Entrer mot de passe"
+                                            name="pwd" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="name">Mot de pass encore <span class="required">*</span> :</label>
+                                        <input type="password" class="inputfield" placeholder="Confirmer le mot de pass"
+                                            name="cpwd" required>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="btn-group">
-                            <button name="submit" type="submit" id="btn" data-table-target="#show">Envoyer</button>
-                        </div>
-                    </form>
+                            <div class="btn-group">
+                                <button name="submit" type="submit" id="btn" data-table-target="#show">Envoyer</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
         </section>
     </main>
     <!-- Main contents Wrapper-->
@@ -116,4 +128,5 @@
     ?>
     <!-- Footer -->
 </body>
+
 </html>
